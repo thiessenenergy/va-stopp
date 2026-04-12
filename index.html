@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vermögensauskunft abwenden | VA-Stopp</title>
+  <meta name="description" content="Vermögensauskunft vermeiden: Wir prüfen Ihren Fall in 24 Stunden und stellen die richtigen Anträge beim Gerichtsvollzieher. Festpreis 99 €. Fachanwalt.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --navy-light: #243352;
+      --blue: #2563eb;
+      --blue-hover: #1d4ed8;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --red-50: #fef2f2;
+      --red-600: #dc2626;
+      --white: #ffffff;
+      --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--gray-900);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* ── NAV ────────────────────────────────────────────── */
+    nav {
+      background: var(--navy);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+    .logo span { color: var(--green); }
+    nav a.cta-nav {
+      background: var(--green);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    nav a.cta-nav:hover { background: #047857; }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--white);
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    .hero .price-badge {
+      display: inline-block;
+      background: rgba(5, 150, 105, 0.15);
+      border: 1px solid rgba(5, 150, 105, 0.4);
+      color: #6ee7b7;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+    .trust-row span::before {
+      content: "\2713";
+      color: var(--green);
+      margin-right: 6px;
+      font-weight: 700;
+    }
+
+    /* ── URGENCY BAR ───────────────────────────────────── */
+    .urgency {
+      background: var(--red-50);
+      border-bottom: 2px solid var(--red-600);
+      padding: 14px 0;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--red-600);
+      font-weight: 500;
+    }
+
+    /* ── SECTIONS ──────────────────────────────────────── */
+    section { padding: 64px 0; }
+    section:nth-child(even) { background: var(--gray-50); }
+    .section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray-600);
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── QUICK CHECK ───────────────────────────────────── */
+    .check-box {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 640px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-lg);
+    }
+    .check-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .check-box p.hint {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .check-step { display: none; }
+    .check-step.active { display: block; }
+    .check-question {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+    .check-options { display: flex; flex-direction: column; gap: 10px; }
+    .check-btn {
+      background: var(--gray-50);
+      border: 2px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 1rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .check-btn:hover {
+      border-color: var(--blue);
+      background: #eff6ff;
+    }
+    .check-progress {
+      height: 4px;
+      background: var(--gray-200);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+    .check-progress-bar {
+      height: 100%;
+      background: var(--blue);
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .check-result {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .check-result.positive h3 { color: var(--green); }
+    .check-result.negative h3 { color: var(--red-600); }
+    .check-result p { margin: 12px 0; color: var(--gray-600); }
+
+    /* ── STEPS ─────────────────────────────────────────── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+    .step {
+      text-align: center;
+      padding: 32px 24px;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+    .step h3 { margin-bottom: 8px; font-size: 1.05rem; }
+    .step p { color: var(--gray-600); font-size: 0.9rem; }
+
+    /* ── PRICING ───────────────────────────────────────── */
+    .pricing-card {
+      background: var(--white);
+      border: 2px solid var(--blue);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .pricing-card .price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .pricing-card .price-note {
+      color: var(--gray-600);
+      margin-bottom: 24px;
+    }
+    .pricing-card ul {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .pricing-card li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 0.95rem;
+    }
+    .pricing-card li::before {
+      content: "\2713";
+      color: var(--green);
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    /* ── FORM ──────────────────────────────────────────── */
+    .form-box {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 560px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    /* ── BUTTONS ────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .btn-primary { background: var(--blue); color: var(--white); }
+    .btn-primary:hover { background: var(--blue-hover); }
+    .btn-green { background: var(--green); color: var(--white); }
+    .btn-green:hover { background: #047857; }
+    .btn-full { width: 100%; text-align: center; }
+
+    /* ── FAQ ────────────────────────────────────────────── */
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+      padding: 20px 0;
+    }
+    .faq-q {
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-q::after { content: "+"; font-size: 1.4rem; color: var(--gray-400); transition: transform 0.2s; }
+    .faq-q.open::after { content: "\2212"; }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--gray-600);
+      font-size: 0.95rem;
+    }
+    .faq-a.open { max-height: 300px; padding-top: 12px; }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: #94a3b8;
+      padding: 40px 0;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    footer a { color: #94a3b8; }
+    footer .links { margin-top: 12px; }
+    footer .links a { margin: 0 12px; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero { padding: 48px 0 40px; }
+      .check-box, .form-box, .pricing-card { padding: 24px; }
+      .trust-row { gap: 16px; }
+      section { padding: 48px 0; }
+    }
+
+    /* ── SUCCESS OVERLAY ────────────────────────────────── */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay.show { display: flex; }
+    .overlay-box {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 48px;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .overlay-box h2 { color: var(--green); margin-bottom: 12px; }
+    .overlay-box p { color: var(--gray-600); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="#" class="logo">VA<span>Stopp</span></a>
+    <a href="#kontakt" class="cta-nav">Jetzt Fall pruefen</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <h1>Vermögensauskunft <em>abwenden</em>.<br>Bevor der Eintrag kommt.</h1>
+    <p class="subtitle">
+      Sie haben Post vom Gerichtsvollzieher? Wir prüfen innerhalb von 24 Stunden,
+      ob Ihr Termin zur Vermögensauskunft anfechtbar ist — und stellen die richtigen Anträge.
+    </p>
+    <div class="price-badge">Festpreis 99 € — Geld zurück bei Nichtbearbeitung</div>
+    <div class="trust-row">
+      <span>Geprüft durch Fachanwalt</span>
+      <span>24-Stunden-Ersteinschätzung</span>
+      <span>Kein Abo, keine Folgekosten</span>
+    </div>
+  </div>
+</header>
+
+<!-- URGENCY -->
+<div class="urgency">
+  Die Frist zur Vermögensauskunft beträgt oft nur 2 Wochen. Je früher Sie handeln, desto mehr Optionen bleiben.
+</div>
+
+<!-- QUICK CHECK -->
+<section id="schnellcheck">
+  <div class="container">
+    <h2 class="section-title">Schnell-Check: Kann ich die VA noch abwenden?</h2>
+    <p class="section-subtitle">5 Fragen, 60 Sekunden. Kostenlos und anonym.</p>
+
+    <div class="check-box" id="checkBox">
+      <div class="check-progress"><div class="check-progress-bar" id="progressBar" style="width:0%"></div></div>
+
+      <!-- Step 1 -->
+      <div class="check-step active" data-step="1">
+        <p class="check-question">Haben Sie eine Ladung zur Abgabe der Vermögensauskunft vom Gerichtsvollzieher erhalten?</p>
+        <div class="check-options">
+          <button class="check-btn" data-next="2" data-score="1">Ja, der Termin steht</button>
+          <button class="check-btn" data-next="2" data-score="1">Ja, aber noch kein konkreter Termin</button>
+          <button class="check-btn" data-next="early" data-score="0">Nein, nur eine Mahnung oder ein Mahnbescheid</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="check-step" data-step="2">
+        <p class="check-question">Wann ist der Termin beim Gerichtsvollzieher?</p>
+        <div class="check-options">
+          <button class="check-btn" data-next="3" data-score="2">In weniger als 7 Tagen</button>
+          <button class="check-btn" data-next="3" data-score="2">In 1 bis 2 Wochen</button>
+          <button class="check-btn" data-next="3" data-score="1">In mehr als 2 Wochen</button>
+          <button class="check-btn" data-next="3" data-score="1">Ich weiß es nicht genau</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="check-step" data-step="3">
+        <p class="check-question">Können Sie aktuell monatliche Ratenzahlungen leisten (auch kleine Beträge)?</p>
+        <div class="check-options">
+          <button class="check-btn" data-next="4" data-score="2">Ja, kleine Raten sind möglich</button>
+          <button class="check-btn" data-next="4" data-score="1">Eventuell, je nach Höhe</button>
+          <button class="check-btn" data-next="4" data-score="0">Nein, aktuell gar nichts</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="check-step" data-step="4">
+        <p class="check-question">Haben Sie die Vermögensauskunft in den letzten 2 Jahren schon einmal abgegeben?</p>
+        <div class="check-options">
+          <button class="check-btn" data-next="5" data-score="0">Ja</button>
+          <button class="check-btn" data-next="5" data-score="1">Nein, das wäre das erste Mal</button>
+          <button class="check-btn" data-next="5" data-score="1">Ich bin nicht sicher</button>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="check-step" data-step="5">
+        <p class="check-question">Um wie viele Gläubiger / Forderungen geht es insgesamt?</p>
+        <div class="check-options">
+          <button class="check-btn" data-next="result" data-score="2">1 bis 2 Gläubiger</button>
+          <button class="check-btn" data-next="result" data-score="1">3 bis 5 Gläubiger</button>
+          <button class="check-btn" data-next="result" data-score="1">Mehr als 5 Gläubiger</button>
+          <button class="check-btn" data-next="result" data-score="0">Ich habe keinen Überblick</button>
+        </div>
+      </div>
+
+      <!-- Result: Positive -->
+      <div class="check-result positive" id="resultPositive">
+        <h3>Gute Chancen — es gibt Handlungsoptionen.</h3>
+        <p>
+          Auf Basis Ihrer Angaben bestehen realistische Möglichkeiten, den Termin zur
+          Vermögensauskunft abzuwenden oder zu verschieben. Ein Fachanwalt prüft Ihren konkreten Fall.
+        </p>
+        <a href="#kontakt" class="btn btn-green" style="margin-top:16px;">Jetzt Fall einreichen</a>
+      </div>
+
+      <!-- Result: Uncertain -->
+      <div class="check-result positive" id="resultUncertain">
+        <h3>Eine Prüfung lohnt sich.</h3>
+        <p>
+          Ihre Situation ist nicht eindeutig — genau deshalb sollte ein Fachanwalt draufschauen.
+          In vielen Fällen gibt es Optionen, die Betroffene nicht kennen.
+        </p>
+        <a href="#kontakt" class="btn btn-green" style="margin-top:16px;">Kostenlose Ersteinschätzung anfordern</a>
+      </div>
+
+      <!-- Result: Early (no GV yet) -->
+      <div class="check-result positive" id="resultEarly">
+        <h3>Gut, dass Sie frühzeitig handeln.</h3>
+        <p>
+          Noch ist kein GV-Termin angesetzt. Jetzt ist der beste Zeitpunkt, um eine Eskalation zu verhindern.
+          Wir prüfen Ihre Forderungen und zeigen Ihnen die Optionen.
+        </p>
+        <a href="#kontakt" class="btn btn-green" style="margin-top:16px;">Jetzt beraten lassen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="container">
+    <h2 class="section-title">So funktioniert es</h2>
+    <p class="section-subtitle">Von der Anfrage bis zur Lösung — in drei Schritten.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Fall einreichen</h3>
+        <p>Füllen Sie das Formular aus und laden Sie Ihre GV-Ladung hoch. Dauert 3 Minuten.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Fachanwalt prüft</h3>
+        <p>Innerhalb von 24 Stunden prüft ein Fachanwalt für Insolvenzrecht Ihren Fall auf alle Optionen: Ratenplan (§ 802b), Formfehler (§ 766), Härtefall (§ 765a).</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Anträge werden gestellt</h3>
+        <p>Wir stellen die richtigen Anträge beim Gerichtsvollzieher und informieren Sie über das Ergebnis. Sie müssen nichts weiter tun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="preis">
+  <div class="container">
+    <h2 class="section-title">Transparent. Ein Preis.</h2>
+    <p class="section-subtitle">Keine versteckten Kosten, kein Abo.</p>
+    <div class="pricing-card">
+      <div class="price">99 €</div>
+      <p class="price-note">Einmalig. Festpreis. Inkl. MwSt.</p>
+      <ul>
+        <li>Vollständige Prüfung Ihrer GV-Ladung</li>
+        <li>Einschätzung durch Fachanwalt für Insolvenzrecht</li>
+        <li>Antragstellung beim Gerichtsvollzieher (§ 802b Ratenplan)</li>
+        <li>Prüfung auf Formfehler (§ 766 ZPO)</li>
+        <li>Prüfung Härtefall-Antrag (§ 765a ZPO)</li>
+        <li>Geld-zurück-Garantie bei Nichtbearbeitung</li>
+      </ul>
+      <a href="#kontakt" class="btn btn-primary btn-full">Jetzt Fall prüfen lassen</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="kontakt">
+  <div class="container">
+    <h2 class="section-title">Fall einreichen</h2>
+    <p class="section-subtitle">Wir melden uns innerhalb von 24 Stunden.</p>
+    <div class="form-box">
+      <!-- TODO: Ersetze YOUR_FORM_ID mit deiner Formspree-ID (https://formspree.io) -->
+      <form id="leadForm" action="https://formspree.io/f/xeevjzea" method="POST">
+        <div class="form-group">
+          <label for="name">Ihr Name</label>
+          <input type="text" id="name" name="name" required placeholder="Vor- und Nachname">
+        </div>
+        <div class="form-group">
+          <label for="telefon">Telefon oder E-Mail</label>
+          <input type="text" id="telefon" name="kontakt" required placeholder="Wie erreichen wir Sie?">
+        </div>
+        <div class="form-group">
+          <label for="termin">Wann ist der GV-Termin?</label>
+          <input type="date" id="termin" name="termin">
+        </div>
+        <div class="form-group">
+          <label for="forderung">Ungefähre Forderungshöhe (optional)</label>
+          <select id="forderung" name="forderung">
+            <option value="">Bitte wählen</option>
+            <option value="unter-500">Unter 500 €</option>
+            <option value="500-2000">500 – 2.000 €</option>
+            <option value="2000-5000">2.000 – 5.000 €</option>
+            <option value="5000-10000">5.000 – 10.000 €</option>
+            <option value="ueber-10000">Über 10.000 €</option>
+            <option value="unbekannt">Weiß ich nicht</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="details">Kurze Beschreibung Ihrer Situation (optional)</label>
+          <textarea id="details" name="details" rows="3" placeholder="Z.B.: Gerichtsvollzieher hat Ladung geschickt, Termin in 10 Tagen ..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-green btn-full">Kostenlos prüfen lassen</button>
+        <p style="text-align:center; color:var(--gray-400); font-size:0.8rem; margin-top:12px;">
+          Ihre Daten werden verschlüsselt übertragen und nur zur Fallbearbeitung verwendet.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Häufige Fragen</h2>
+    <div style="max-width:640px; margin:32px auto 0;">
+
+      <div class="faq-item">
+        <div class="faq-q">Was ist die Vermögensauskunft (eidesstattliche Versicherung)?</div>
+        <div class="faq-a">
+          Die Vermögensauskunft nach § 802c ZPO (früher "eidesstattliche Versicherung" oder "Offenbarungseid")
+          ist eine Auflistung Ihres gesamten Vermögens, die Sie vor einem Gerichtsvollzieher abgeben müssen.
+          Sie führt zu einem Eintrag im Schuldnerverzeichnis für 3 Jahre — mit Auswirkungen auf SCHUFA,
+          Mietverträge, Bankkonten und teilweise auf den Arbeitsplatz.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Was passiert, wenn ich zum GV-Termin nicht erscheine?</div>
+        <div class="faq-a">
+          Wenn Sie nicht erscheinen, kann das Gericht einen Haftbefehl (§ 802g ZPO) erlassen.
+          Das sollten Sie unbedingt vermeiden. Besser: rechtzeitig Anträge stellen, um den Termin
+          aufzuschieben oder abzuwenden.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Wie kann man die VA abwenden?</div>
+        <div class="faq-a">
+          Es gibt drei Hauptwege: (1) Ratenzahlungsvereinbarung nach § 802b ZPO — der Gerichtsvollzieher
+          kann einen Zahlungsplan von bis zu 12 Monaten gewähren. (2) Vollstreckungserinnerung nach § 766 ZPO —
+          bei Formfehlern in der Ladung oder im Titel. (3) Vollstreckungsschutz nach § 765a ZPO —
+          bei besonderer Härte. Welcher Weg passt, hängt von Ihrem konkreten Fall ab.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Wer prüft meinen Fall?</div>
+        <div class="faq-a">
+          Ihr Fall wird von einem Fachanwalt für Insolvenzrecht geprüft.
+          Wir arbeiten mit spezialisierten Partnerkanzleien, die täglich Vollstreckungsfälle bearbeiten.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Was kostet das?</div>
+        <div class="faq-a">
+          Der Festpreis beträgt 99 € (inkl. MwSt.) für die vollständige Prüfung und Antragstellung.
+          Keine Folgekosten, kein Abo. Falls Ihr Fall aus rechtlichen Gründen nicht bearbeitet werden kann,
+          erhalten Sie Ihr Geld zurück.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Ist Ratenzahlung möglich?</div>
+        <div class="faq-a">
+          Ja. Sprechen Sie uns an — wir finden eine Lösung. Niemand soll aus finanziellen Gründen
+          auf Hilfe verzichten müssen.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Was ist der Unterschied zu einer Schuldnerberatung?</div>
+        <div class="faq-a">
+          Gemeinnützige Schuldnerberatungen (Caritas, Diakonie, Verbraucherzentrale) leisten wichtige Arbeit —
+          haben aber oft Wartezeiten von Wochen bis Monaten. Wir sind spezialisiert auf die akute VA-Situation
+          mit der typischen 2-Wochen-Frist. Unser Service ersetzt keine Schuldnerberatung, sondern ergänzt sie
+          in der Akutphase.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>VA-Stopp ist ein Service in Kooperation mit spezialisierten Rechtsanwälten.</p>
+    <div class="links">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="#">AGB</a>
+    </div>
+    <p style="margin-top:16px; font-size:0.75rem; color:#64748b;">
+      * Hinweis: Dies ist keine Rechtsberatung. Die Ersteinschätzung dient der Vorprüfung
+      und wird durch einen zugelassenen Rechtsanwalt bestätigt.
+    </p>
+  </div>
+</footer>
+
+<!-- SUCCESS OVERLAY -->
+<div class="overlay" id="successOverlay">
+  <div class="overlay-box">
+    <h2>Anfrage erhalten!</h2>
+    <p>Wir prüfen Ihren Fall und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+    <button class="btn btn-primary" style="margin-top:20px;" onclick="document.getElementById('successOverlay').classList.remove('show')">Verstanden</button>
+  </div>
+</div>
+
+<script>
+// ── Quick Check Logic ──────────────────────────────────────────────────────
+(function() {
+  let score = 0;
+  const box = document.getElementById('checkBox');
+  const bar = document.getElementById('progressBar');
+  const totalSteps = 5;
+
+  box.addEventListener('click', function(e) {
+    const btn = e.target.closest('.check-btn');
+    if (!btn) return;
+
+    score += parseInt(btn.dataset.score) || 0;
+    const next = btn.dataset.next;
+
+    // Hide current step
+    const current = box.querySelector('.check-step.active');
+    if (current) current.classList.remove('active');
+
+    if (next === 'result') {
+      bar.style.width = '100%';
+      if (score >= 6) {
+        document.getElementById('resultPositive').style.display = 'block';
+      } else {
+        document.getElementById('resultUncertain').style.display = 'block';
+      }
+    } else if (next === 'early') {
+      bar.style.width = '100%';
+      document.getElementById('resultEarly').style.display = 'block';
+    } else {
+      const nextStep = box.querySelector('[data-step="' + next + '"]');
+      if (nextStep) {
+        nextStep.classList.add('active');
+        const stepNum = parseInt(next);
+        bar.style.width = ((stepNum - 1) / totalSteps * 100) + '%';
+      }
+    }
+  });
+})();
+
+// ── FAQ Toggle ─────────────────────────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    this.classList.toggle('open');
+    this.nextElementSibling.classList.toggle('open');
+  });
+});
+
+// ── Form Submit (Formspree AJAX) ───────────────────────────────────────────
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var data = new FormData(form);
+  var btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Wird gesendet...';
+  btn.disabled = true;
+
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+    if (response.ok) {
+      document.getElementById('successOverlay').classList.add('show');
+      form.reset();
+    } else {
+      alert('Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.');
+    }
+  }).catch(function() {
+    alert('Netzwerkfehler. Bitte prüfen Sie Ihre Internetverbindung.');
+  }).finally(function() {
+    btn.textContent = 'Kostenlos prüfen lassen';
+    btn.disabled = false;
+  });
+});
+</script>
+
+</body>
+</html>
