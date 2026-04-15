@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verjährungsrechner — Ist Ihre Forderung verjährt? | VA-Stopp</title>
+  <meta name="description" content="Kostenloser Verjährungsrechner: Prüfen Sie in 30 Sekunden ob Ihre Schulden oder Inkasso-Forderung bereits verjährt ist. Einfach Daten eingeben — sofort Ergebnis.">
+  <meta name="google-site-verification" content="tdC-dqmYdrahPx1nZJLBkvZ98biNxS-ieqDxALgHSO8" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18087592672"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18087592672');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2744; --navy-light: #243352; --blue: #2563eb; --blue-hover: #1d4ed8;
+      --green: #059669; --green-light: #d1fae5; --gray-50: #f9fafb; --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb; --gray-600: #4b5563; --gray-700: #374151; --gray-900: #111827;
+      --white: #ffffff; --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: var(--gray-900); line-height: 1.7; background: var(--white); }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    nav { background: var(--navy); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+    nav .nav-inner { max-width: 960px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { color: var(--white); font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+    .logo span { color: var(--green); }
+    nav a.cta-nav { background: var(--green); color: var(--white); padding: 8px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    nav a.cta-nav:hover { background: #047857; }
+
+    .article-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 60px 0 48px; text-align: center; }
+    .article-hero h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
+    .article-hero p { color: #94a3b8; font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+
+    .breadcrumb { padding: 12px 0; font-size: 0.85rem; color: var(--gray-600); }
+    .breadcrumb a { color: var(--blue); text-decoration: none; }
+
+    .tool-section { padding: 48px 0 64px; }
+
+    .calculator {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .form-group { margin-bottom: 24px; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
+    .form-group .hint { display: block; font-weight: 400; color: var(--gray-600); font-size: 0.85rem; margin-top: 2px; }
+    .form-group select, .form-group input {
+      width: 100%; padding: 12px 16px; border: 2px solid var(--gray-200); border-radius: 8px;
+      font-size: 1rem; font-family: inherit; background: var(--white); transition: border-color 0.2s;
+    }
+    .form-group select:focus, .form-group input:focus { outline: none; border-color: var(--blue); }
+
+    .radio-group { display: flex; flex-direction: column; gap: 8px; }
+    .radio-option {
+      display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+      border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.15s;
+    }
+    .radio-option:hover { border-color: var(--blue); background: #eff6ff; }
+    .radio-option input { accent-color: var(--blue); width: 18px; height: 18px; }
+    .radio-option span { font-size: 0.95rem; }
+
+    .btn-calculate {
+      width: 100%; padding: 16px; background: var(--blue); color: var(--white);
+      border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: background 0.2s;
+    }
+    .btn-calculate:hover { background: var(--blue-hover); }
+
+    .result { display: none; margin-top: 32px; padding: 28px; border-radius: 12px; text-align: center; }
+    .result h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .result p { margin-bottom: 8px; }
+    .result.verjahrt { background: var(--green-light); border: 2px solid var(--green); }
+    .result.verjahrt h3 { color: var(--green); }
+    .result.nicht-verjahrt { background: #fef2f2; border: 2px solid #dc2626; }
+    .result.nicht-verjahrt h3 { color: #dc2626; }
+    .result.unklar { background: #fffbeb; border: 2px solid #f59e0b; }
+    .result.unklar h3 { color: #b45309; }
+    .result .detail { font-size: 0.9rem; color: var(--gray-600); margin-top: 12px; }
+    .result .cta-link {
+      display: inline-block; margin-top: 16px; background: var(--green); color: var(--white);
+      padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s;
+    }
+    .result .cta-link:hover { background: #047857; }
+
+    .info-section { padding: 48px 0 64px; background: var(--gray-50); }
+    .info-section h2 { font-size: 1.35rem; font-weight: 700; margin: 32px 0 16px; color: var(--navy); }
+    .info-section h2:first-child { margin-top: 0; }
+    .info-section p { margin-bottom: 16px; color: var(--gray-700); }
+    .info-section ul { margin-bottom: 16px; padding-left: 24px; color: var(--gray-700); }
+    .info-section li { margin-bottom: 8px; }
+    .info-box { background: var(--white); border-left: 4px solid var(--blue); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .info-box p { margin-bottom: 0; color: var(--gray-900); }
+
+    .verjährungstabelle { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem; }
+    .verjährungstabelle th { background: var(--navy); color: var(--white); padding: 12px 16px; text-align: left; }
+    .verjährungstabelle td { padding: 10px 16px; border-bottom: 1px solid var(--gray-200); }
+    .verjährungstabelle tr:nth-child(even) { background: var(--gray-50); }
+
+    .cta-box { background: var(--navy); color: var(--white); padding: 40px; border-radius: 12px; text-align: center; margin: 48px 0 0; }
+    .cta-box h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .cta-box p { color: #94a3b8; margin-bottom: 24px; }
+    .cta-box a { display: inline-block; background: var(--green); color: var(--white); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+    .cta-box a:hover { background: #047857; }
+
+    .related { padding: 48px 0; background: var(--gray-50); }
+    .related h3 { text-align: center; font-size: 1.2rem; margin-bottom: 24px; }
+    .related-links { display: flex; flex-direction: column; gap: 12px; max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    .related-links a { background: var(--white); padding: 16px 20px; border-radius: 8px; text-decoration: none; color: var(--navy); font-weight: 500; box-shadow: var(--shadow); transition: box-shadow 0.2s; }
+    .related-links a:hover { box-shadow: var(--shadow-lg); }
+
+    footer { background: var(--navy); color: #94a3b8; padding: 32px 0; text-align: center; font-size: 0.85rem; }
+    footer a { color: #94a3b8; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 600px) {
+      .calculator { padding: 24px 16px; }
+      .article-hero { padding: 40px 0 32px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wann verjähren Schulden in Deutschland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die reguläre Verjährungsfrist beträgt 3 Jahre ab Ende des Jahres, in dem die Forderung entstanden ist (§ 195 BGB). Titulierte Forderungen (mit Vollstreckungsbescheid oder Urteil) verjähren erst nach 30 Jahren."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist eine titulierte Forderung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eine titulierte Forderung wurde durch ein Gerichtsurteil, einen Vollstreckungsbescheid oder einen notariellen Vertrag festgestellt. Die Verjährungsfrist verlängert sich dadurch auf 30 Jahre."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Muss ich die Verjährung selbst geltend machen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Verjährung greift nicht automatisch. Sie müssen die sogenannte Einrede der Verjährung erheben — also dem Gläubiger oder Inkassounternehmen mitteilen, dass Sie die Forderung für verjährt halten und nicht zahlen werden."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">VA-<span>Stopp</span></a>
+      <a href="/#formular" class="cta-nav">Fall prüfen lassen</a>
+    </div>
+  </nav>
+
+  <div class="article-hero">
+    <div class="container">
+      <h1>Verjährungsrechner — Ist Ihre Forderung verjährt?</h1>
+      <p>Prüfen Sie kostenlos in 30 Sekunden, ob Sie noch zahlen müssen.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a> &rsaquo; Tools &rsaquo; Verjährungsrechner
+    </div>
+  </div>
+
+  <div class="tool-section">
+    <div class="container">
+      <div class="calculator">
+        <div class="form-group">
+          <label>Wann ist die Forderung entstanden?
+            <span class="hint">Das Jahr, in dem die Rechnung fällig wurde oder der Vertrag gebrochen wurde.</span>
+          </label>
+          <select id="year">
+            <option value="">Bitte Jahr wählen</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Gibt es einen Titel?
+            <span class="hint">Ein Titel ist z.B. ein Vollstreckungsbescheid, ein Gerichtsurteil oder ein notarieller Vertrag.</span>
+          </label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="titel" value="nein" checked>
+              <span>Nein — nur Inkasso-Brief / Mahnung / offene Rechnung</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="titel" value="ja">
+              <span>Ja — Vollstreckungsbescheid, Urteil oder notarieller Vertrag</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="titel" value="unsicher">
+              <span>Weiß ich nicht</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Wurde die Verjährung unterbrochen?
+            <span class="hint">Z.B. durch einen Mahnbescheid, eine Klage, Ihr Anerkenntnis oder eine Ratenzahlung.</span>
+          </label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="hemmung" value="nein" checked>
+              <span>Nein / Weiß ich nicht</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="hemmung" value="ja">
+              <span>Ja — es gab zwischendurch eine Unterbrechung</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-calculate" onclick="berechnen()">Verjährung prüfen</button>
+
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="container">
+      <h2>Verjährungsfristen in Deutschland — Übersicht</h2>
+      <table class="verjährungstabelle">
+        <thead>
+          <tr><th>Art der Forderung</th><th>Frist</th><th>Rechtsgrundlage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Reguläre Forderungen (Rechnungen, Verträge, Dienstleistungen)</td><td>3 Jahre</td><td>§ 195 BGB</td></tr>
+          <tr><td>Titulierte Forderungen (Urteil, Vollstreckungsbescheid)</td><td>30 Jahre</td><td>§ 197 BGB</td></tr>
+          <tr><td>Mietkaution-Rückforderung</td><td>3 Jahre</td><td>§ 195 BGB</td></tr>
+          <tr><td>Schadensersatz (Körperverletzung)</td><td>30 Jahre</td><td>§ 199 Abs. 2 BGB</td></tr>
+          <tr><td>Grundstücksrechte</td><td>10 Jahre</td><td>§ 196 BGB</td></tr>
+        </tbody>
+      </table>
+
+      <h2>So funktioniert die Verjährung</h2>
+      <p>Die reguläre Verjährungsfrist von 3 Jahren beginnt nicht am Tag der Forderung, sondern erst am <strong>Ende des Jahres</strong>, in dem die Forderung entstanden ist. Eine Rechnung vom 15. März 2023 verjährt also nicht am 15. März 2026, sondern erst am <strong>31. Dezember 2026</strong>.</p>
+
+      <h2>Was hemmt oder unterbricht die Verjährung?</h2>
+      <p>Bestimmte Ereignisse können die Verjährungsfrist verlängern:</p>
+      <ul>
+        <li><strong>Mahnbescheid:</strong> Hemmt die Verjährung ab Zustellung (§ 204 Abs. 1 Nr. 3 BGB)</li>
+        <li><strong>Klageerhebung:</strong> Hemmt die Verjährung für die Dauer des Verfahrens</li>
+        <li><strong>Anerkenntnis:</strong> Wenn Sie die Forderung anerkannt haben (z.B. durch Teilzahlung oder Ratenzahlungsvereinbarung), beginnt die Frist neu (§ 212 BGB)</li>
+        <li><strong>Verhandlungen:</strong> Während Sie mit dem Gläubiger verhandeln, ist die Verjährung gehemmt</li>
+      </ul>
+
+      <div class="info-box">
+        <p><strong>Wichtig:</strong> Verjährung greift nicht automatisch. Sie müssen die <strong>Einrede der Verjährung</strong> aktiv erheben — also dem Gläubiger oder dem Gericht mitteilen, dass Sie die Zahlung wegen Verjährung verweigern. Zahlen Sie eine verjährte Forderung trotzdem, können Sie das Geld in der Regel nicht zurückfordern.</p>
+      </div>
+
+      <h2>Titulierte Forderung — 30 Jahre Verjährung</h2>
+      <p>Sobald ein Gericht eine Forderung bestätigt hat — durch Urteil, Vollstreckungsbescheid oder Vergleich — verlängert sich die Verjährung auf <strong>30 Jahre</strong>. Das gilt auch für notariell beurkundete Forderungen.</p>
+      <p>Deshalb ist es so wichtig, auf einen Mahnbescheid rechtzeitig zu reagieren: Wird daraus ein Vollstreckungsbescheid, haben Sie die Forderung für 30 Jahre am Hals.</p>
+
+      <div class="cta-box">
+        <h3>Forderung möglicherweise verjährt?</h3>
+        <p>Wir prüfen Ihren Fall und helfen Ihnen, die Verjährungseinrede richtig zu erheben.</p>
+        <a href="/#formular">Jetzt Fall prüfen lassen</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="related">
+    <h3>Weitere Ratgeber</h3>
+    <div class="related-links">
+      <a href="/ratgeber/inkasso-ignorieren-oder-zahlen.html">Inkasso-Brief erhalten — ignorieren oder zahlen?</a>
+      <a href="/ratgeber/vollstreckungsbescheid-zu-spaet.html">Vollstreckungsbescheid zu spät gesehen — was jetzt?</a>
+      <a href="/tools/fristrechner.html">Fristrechner — Widerspruchs- und Einspruchsfristen berechnen</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <p style="margin-top: 12px;">&copy; 2026 VA-Stopp — A. Thiessen</p>
+    </div>
+  </footer>
+
+  <script>
+    // Populate year dropdown
+    const yearSelect = document.getElementById('year');
+    const currentYear = new Date().getFullYear();
+    for (let y = currentYear; y >= currentYear - 35; y--) {
+      const opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y;
+      yearSelect.appendChild(opt);
+    }
+
+    function berechnen() {
+      const year = parseInt(document.getElementById('year').value);
+      const titel = document.querySelector('input[name="titel"]:checked').value;
+      const hemmung = document.querySelector('input[name="hemmung"]:checked').value;
+      const resultDiv = document.getElementById('result');
+
+      if (!year) {
+        resultDiv.style.display = 'block';
+        resultDiv.className = 'result unklar';
+        resultDiv.innerHTML = '<h3>Bitte wählen Sie ein Jahr</h3><p>Wir brauchen das Entstehungsjahr der Forderung für die Berechnung.</p>';
+        return;
+      }
+
+      // Verjährung beginnt am Ende des Entstehungsjahres
+      const fristStart = year + 1; // 1. Januar des Folgejahres
+      let fristJahre;
+      let fristTyp;
+
+      if (titel === 'ja') {
+        fristJahre = 30;
+        fristTyp = 'tituliert';
+      } else {
+        fristJahre = 3;
+        fristTyp = 'regulär';
+      }
+
+      const verjährtAm = fristStart + fristJahre; // 31.12. dieses Jahres
+      const verjährtDatum = '31.12.' + (verjährtAm - 1);
+      const heute = new Date();
+      const heuteJahr = heute.getFullYear();
+      const heuteMonat = heute.getMonth(); // 0-11
+
+      // Ist Ende des Verjährungsjahres bereits vorbei?
+      const istVerjährt = heuteJahr >= verjährtAm;
+
+      resultDiv.style.display = 'block';
+
+      if (hemmung === 'ja') {
+        resultDiv.className = 'result unklar';
+        resultDiv.innerHTML =
+          '<h3>Individuelle Prüfung nötig</h3>' +
+          '<p>Ohne Unterbrechung wäre die Forderung am <strong>' + verjährtDatum + '</strong> verjährt (' + fristJahre + ' Jahre, ' + fristTyp + 'e Frist).</p>' +
+          '<p>Da die Verjährung zwischenzeitlich unterbrochen wurde, verschiebt sich das Datum. Die genaue Berechnung hängt von Art und Dauer der Unterbrechung ab.</p>' +
+          '<p class="detail">Hemmungsgründe (§ 203–213 BGB) können die Frist um Monate oder Jahre verlängern.</p>' +
+          '<a class="cta-link" href="/#formular">Kostenlos prüfen lassen</a>';
+      } else if (titel === 'unsicher') {
+        resultDiv.className = 'result unklar';
+        if (istVerjährt) {
+          resultDiv.innerHTML =
+            '<h3>Möglicherweise verjährt</h3>' +
+            '<p>Wenn kein Titel vorliegt, wäre die Forderung seit dem <strong>' + verjährtDatum + '</strong> verjährt (3 Jahre, reguläre Frist).</p>' +
+            '<p>Falls aber ein Vollstreckungsbescheid oder Urteil existiert, gilt die 30-jährige Frist — dann verjährt die Forderung erst am <strong>31.12.' + (fristStart + 30 - 1) + '</strong>.</p>' +
+            '<p class="detail">Prüfen Sie Ihre Unterlagen oder lassen Sie uns das klären.</p>' +
+            '<a class="cta-link" href="/#formular">Kostenlos prüfen lassen</a>';
+        } else {
+          resultDiv.innerHTML =
+            '<h3>Noch nicht verjährt</h3>' +
+            '<p>Die reguläre Verjährungsfrist (3 Jahre) läuft bis zum <strong>' + verjährtDatum + '</strong>.</p>' +
+            '<p>Ob ein Titel vorliegt, spielt erst eine Rolle, wenn die 3-Jahres-Frist abgelaufen ist.</p>' +
+            '<p class="detail">Sie können trotzdem prüfen lassen, ob die Forderung berechtigt ist.</p>' +
+            '<a class="cta-link" href="/#formular">Forderung prüfen lassen</a>';
+        }
+      } else if (istVerjährt) {
+        resultDiv.className = 'result verjahrt';
+        resultDiv.innerHTML =
+          '<h3>Wahrscheinlich verjährt!</h3>' +
+          '<p>Die ' + fristTyp + 'e Verjährungsfrist von ' + fristJahre + ' Jahren ist am <strong>' + verjährtDatum + '</strong> abgelaufen.</p>' +
+          '<p>Sie müssen die <strong>Einrede der Verjährung</strong> aktiv erheben — die Forderung verfällt nicht automatisch.</p>' +
+          '<p class="detail">Voraussetzung: Es gab keine Hemmung oder Unterbrechung der Verjährung (z.B. durch Ratenzahlung, Mahnbescheid oder Anerkenntnis).</p>' +
+          '<a class="cta-link" href="/#formular">Verjährungseinrede vorbereiten lassen</a>';
+      } else {
+        // Noch nicht verjährt — wie lange noch?
+        const restMonate = (verjährtAm - 1 - heuteJahr) * 12 + (11 - heuteMonat);
+        let restText;
+        if (restMonate > 12) {
+          restText = 'noch ca. ' + Math.floor(restMonate / 12) + ' Jahre und ' + (restMonate % 12) + ' Monate';
+        } else {
+          restText = 'noch ca. ' + restMonate + ' Monate';
+        }
+        resultDiv.className = 'result nicht-verjahrt';
+        resultDiv.innerHTML =
+          '<h3>Noch nicht verjährt</h3>' +
+          '<p>Die ' + fristTyp + 'e Verjährungsfrist von ' + fristJahre + ' Jahren läuft bis zum <strong>' + verjährtDatum + '</strong> (' + restText + ').</p>' +
+          '<p>Bis dahin kann der Gläubiger die Forderung durchsetzen.</p>' +
+          '<p class="detail">Aber: Nur weil eine Forderung nicht verjährt ist, heißt das nicht, dass sie berechtigt ist.</p>' +
+          '<a class="cta-link" href="/#formular">Forderung prüfen lassen</a>';
+      }
+
+      // Track tool usage
+      if (typeof gtag === 'function') {
+        gtag('event', 'tool_used', { event_category: 'engagement', event_label: 'verjaehrungsrechner' });
+      }
+    }
+  </script>
+</body>
+</html>
