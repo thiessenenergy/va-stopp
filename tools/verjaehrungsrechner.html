@@ -164,7 +164,7 @@
   <nav>
     <div class="nav-inner">
       <a href="/" class="logo">VA-<span>Stopp</span></a>
-      <a href="/#formular" class="cta-nav">Fall prüfen lassen</a>
+      <a href="/#kontakt" class="cta-nav">Fall prüfen lassen</a>
     </div>
   </nav>
 
@@ -275,7 +275,7 @@
       <div class="cta-box">
         <h3>Forderung möglicherweise verjährt?</h3>
         <p>Wir prüfen Ihren Fall und helfen Ihnen, die Verjährungseinrede richtig zu erheben.</p>
-        <a href="/#formular">Jetzt Fall prüfen lassen</a>
+        <a href="/#kontakt">Jetzt Fall prüfen lassen</a>
       </div>
     </div>
   </div>
@@ -352,7 +352,7 @@
           '<p>Ohne Unterbrechung wäre die Forderung am <strong>' + verjährtDatum + '</strong> verjährt (' + fristJahre + ' Jahre, ' + fristTyp + 'e Frist).</p>' +
           '<p>Da die Verjährung zwischenzeitlich unterbrochen wurde, verschiebt sich das Datum. Die genaue Berechnung hängt von Art und Dauer der Unterbrechung ab.</p>' +
           '<p class="detail">Hemmungsgründe (§ 203–213 BGB) können die Frist um Monate oder Jahre verlängern.</p>' +
-          '<a class="cta-link" href="/#formular">Kostenlos prüfen lassen</a>';
+          '<a class="cta-link" href="/#kontakt">Kostenlos prüfen lassen</a>';
       } else if (titel === 'unsicher') {
         resultDiv.className = 'result unklar';
         if (istVerjährt) {
@@ -361,14 +361,14 @@
             '<p>Wenn kein Titel vorliegt, wäre die Forderung seit dem <strong>' + verjährtDatum + '</strong> verjährt (3 Jahre, reguläre Frist).</p>' +
             '<p>Falls aber ein Vollstreckungsbescheid oder Urteil existiert, gilt die 30-jährige Frist — dann verjährt die Forderung erst am <strong>31.12.' + (fristStart + 30 - 1) + '</strong>.</p>' +
             '<p class="detail">Prüfen Sie Ihre Unterlagen oder lassen Sie uns das klären.</p>' +
-            '<a class="cta-link" href="/#formular">Kostenlos prüfen lassen</a>';
+            '<a class="cta-link" href="/#kontakt">Kostenlos prüfen lassen</a>';
         } else {
           resultDiv.innerHTML =
             '<h3>Noch nicht verjährt</h3>' +
             '<p>Die reguläre Verjährungsfrist (3 Jahre) läuft bis zum <strong>' + verjährtDatum + '</strong>.</p>' +
             '<p>Ob ein Titel vorliegt, spielt erst eine Rolle, wenn die 3-Jahres-Frist abgelaufen ist.</p>' +
             '<p class="detail">Sie können trotzdem prüfen lassen, ob die Forderung berechtigt ist.</p>' +
-            '<a class="cta-link" href="/#formular">Forderung prüfen lassen</a>';
+            '<a class="cta-link" href="/#kontakt">Forderung prüfen lassen</a>';
         }
       } else if (istVerjährt) {
         resultDiv.className = 'result verjahrt';
@@ -377,7 +377,7 @@
           '<p>Die ' + fristTyp + 'e Verjährungsfrist von ' + fristJahre + ' Jahren ist am <strong>' + verjährtDatum + '</strong> abgelaufen.</p>' +
           '<p>Sie müssen die <strong>Einrede der Verjährung</strong> aktiv erheben — die Forderung verfällt nicht automatisch.</p>' +
           '<p class="detail">Voraussetzung: Es gab keine Hemmung oder Unterbrechung der Verjährung (z.B. durch Ratenzahlung, Mahnbescheid oder Anerkenntnis).</p>' +
-          '<a class="cta-link" href="/#formular">Verjährungseinrede vorbereiten lassen</a>';
+          '<a class="cta-link" href="/#kontakt">Verjährungseinrede vorbereiten lassen</a>';
       } else {
         // Noch nicht verjährt — wie lange noch?
         const restMonate = (verjährtAm - 1 - heuteJahr) * 12 + (11 - heuteMonat);
@@ -393,7 +393,7 @@
           '<p>Die ' + fristTyp + 'e Verjährungsfrist von ' + fristJahre + ' Jahren läuft bis zum <strong>' + verjährtDatum + '</strong> (' + restText + ').</p>' +
           '<p>Bis dahin kann der Gläubiger die Forderung durchsetzen.</p>' +
           '<p class="detail">Aber: Nur weil eine Forderung nicht verjährt ist, heißt das nicht, dass sie berechtigt ist.</p>' +
-          '<a class="cta-link" href="/#formular">Forderung prüfen lassen</a>';
+          '<a class="cta-link" href="/#kontakt">Forderung prüfen lassen</a>';
       }
 
       // Track tool usage

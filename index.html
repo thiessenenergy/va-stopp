@@ -405,8 +405,8 @@
 <!-- NAV -->
 <nav>
   <div class="container">
-    <a href="#" class="logo">VA<span>Stopp</span></a>
-    <a href="#kontakt" class="cta-nav">Jetzt Fall pruefen</a>
+    <a href="#" class="logo">VA-<span>Stopp</span></a>
+    <a href="#kontakt" class="cta-nav">Jetzt Fall prüfen</a>
   </div>
 </nav>
 
@@ -535,7 +535,7 @@
       <div class="step">
         <div class="step-number">1</div>
         <h3>Fall einreichen</h3>
-        <p>Füllen Sie das Formular aus und laden Sie Ihre GV-Ladung hoch. Dauert 3 Minuten.</p>
+        <p>Füllen Sie das Formular aus und beschreiben Sie Ihre Situation. Dauert 3 Minuten.</p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
@@ -608,7 +608,7 @@
           <label for="details">Kurze Beschreibung Ihrer Situation (optional)</label>
           <textarea id="details" name="details" rows="3" placeholder="Z.B.: Gerichtsvollzieher hat Ladung geschickt, Termin in 10 Tagen ..."></textarea>
         </div>
-        <button type="submit" class="btn btn-green btn-full">Kostenlos prüfen lassen</button>
+        <button type="submit" class="btn btn-green btn-full">Jetzt Fall einreichen</button>
         <p style="text-align:center; color:var(--gray-400); font-size:0.8rem; margin-top:12px;">
           Ihre Daten werden verschlüsselt übertragen und nur zur Fallbearbeitung verwendet.
         </p>
@@ -694,7 +694,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>VA-Stopp ist ein Service in Kooperation mit spezialisierten Rechtsanwälten.</p>
+    <p>VA-Stopp ist ein Service von A. Thiessen in Kooperation mit spezialisierten Rechtsanwälten.</p>
     <div class="links">
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
@@ -809,7 +809,7 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
   }).catch(function() {
     alert('Netzwerkfehler. Bitte prüfen Sie Ihre Internetverbindung.');
   }).finally(function() {
-    btn.textContent = 'Kostenlos prüfen lassen';
+    btn.textContent = 'Jetzt Fall einreichen';
     btn.disabled = false;
   });
 });

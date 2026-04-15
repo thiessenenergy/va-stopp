@@ -159,7 +159,7 @@
   <nav>
     <div class="nav-inner">
       <a href="/" class="logo">VA-<span>Stopp</span></a>
-      <a href="/#formular" class="cta-nav">Fall prüfen lassen</a>
+      <a href="/#kontakt" class="cta-nav">Fall prüfen lassen</a>
     </div>
   </nav>
 
@@ -232,7 +232,7 @@
       <div class="cta-box">
         <h3>Frist läuft? Wir helfen sofort.</h3>
         <p>Schildern Sie uns Ihren Fall — wir prüfen ihn innerhalb von 24 Stunden und sagen Ihnen, was zu tun ist.</p>
-        <a href="/#formular">Jetzt Fall prüfen lassen</a>
+        <a href="/#kontakt">Jetzt Fall prüfen lassen</a>
       </div>
     </div>
   </div>
@@ -363,7 +363,7 @@
           verschoben +
           '<p>Aber: Wenn Sie die Frist unverschuldet versäumt haben, können Sie <strong>Wiedereinsetzung in den vorigen Stand</strong> beantragen.</p>' +
           '<ul class="action-list"><li>Innerhalb von 2 Wochen nach Kenntnis</li><li>Zusammen mit dem ' + aktion + '</li><li>Mit Nachweis des Hinderungsgrundes</li></ul>' +
-          '<div style="text-align:center"><a class="cta-link" href="/#formular">Wiedereinsetzung prüfen lassen</a></div>';
+          '<div style="text-align:center"><a class="cta-link" href="/#kontakt">Wiedereinsetzung prüfen lassen</a></div>';
       } else if (diffTage <= 3) {
         // Frist knapp
         resultDiv.className = 'result frist-knapp';
@@ -373,7 +373,7 @@
           '<p style="text-align:center">Der ' + aktion + ' muss bis spätestens <strong>' + fristendeStr + '</strong> (' + wochentagStr + ') beim Gericht eingegangen sein.</p>' +
           verschoben +
           '<ul class="action-list"><li><strong>Sofort handeln</strong> — per Fax ans Gericht (Sendebericht aufheben!)</li><li>Alternativ: Persönlich bei der Geschäftsstelle abgeben</li><li>Normaler Brief reicht zeitlich nicht mehr</li></ul>' +
-          '<div style="text-align:center"><a class="cta-link" href="/#formular">Sofort-Hilfe anfordern</a></div>';
+          '<div style="text-align:center"><a class="cta-link" href="/#kontakt">Sofort-Hilfe anfordern</a></div>';
       } else {
         // Frist läuft noch
         resultDiv.className = 'result frist-ok';
@@ -383,7 +383,7 @@
           '<p style="text-align:center">' + aktion + ' einlegen bis spätestens <strong>' + fristendeStr + '</strong> (' + wochentagStr + ').</p>' +
           verschoben +
           '<ul class="action-list"><li>' + aktion + ' schriftlich ans zuständige Gericht senden</li><li>Idealerweise per Fax (Sendebericht = Nachweis)</li><li>Der ' + aktion + ' muss nicht begründet werden</li></ul>' +
-          '<div style="text-align:center"><a class="cta-link" href="/#formular">Fall prüfen lassen</a></div>';
+          '<div style="text-align:center"><a class="cta-link" href="/#kontakt">Fall prüfen lassen</a></div>';
       }
 
       if (typeof gtag === 'function') {
