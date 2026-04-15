@@ -6,12 +6,20 @@
   <title>Vollstreckungsbescheid zu spät gesehen — was jetzt? | VA-Stopp</title>
   <meta name="description" content="Vollstreckungsbescheid zu spät geöffnet? Frist abgelaufen? Erfahren Sie, wie die Wiedereinsetzung funktioniert und was Sie jetzt tun können.">
   <meta name="google-site-verification" content="tdC-dqmYdrahPx1nZJLBkvZ98biNxS-ieqDxALgHSO8" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18087592672"></script>
+  <!-- Google Ads gtag.js — nur nach Cookie-Consent laden -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18087592672');
+    function loadGtag() {
+      if (document.querySelector('script[src*="googletagmanager"]')) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18087592672';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'AW-18087592672');
+    }
+    if (document.cookie.indexOf('va_consent=1') !== -1) { loadGtag(); }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -83,6 +91,17 @@
       article { padding: 32px 0 48px; }
       .cta-box { padding: 28px 20px; }
     }
+    .cookie-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #1a2744; color: #cbd5e1; padding: 16px 20px; z-index: 300; font-size: 0.88rem; line-height: 1.5; box-shadow: 0 -4px 12px rgba(0,0,0,0.15); }
+    .cookie-banner.show { display: block; }
+    .cookie-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .cookie-inner p { flex: 1; min-width: 240px; margin: 0; }
+    .cookie-inner a { color: #94a3b8; text-decoration: underline; }
+    .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+    .cookie-btns button { padding: 8px 20px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; cursor: pointer; border: none; font-family: inherit; transition: background 0.2s; }
+    .cookie-accept { background: #059669; color: #fff; }
+    .cookie-accept:hover { background: #047857; }
+    .cookie-decline { background: transparent; color: #94a3b8; border: 1px solid #475569 !important; }
+    .cookie-decline:hover { background: rgba(255,255,255,0.05); }
   </style>
   <script type="application/ld+json">
   {
@@ -91,7 +110,7 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Was tun wenn die Einspruchsfrist beim Vollstreckungsbescheid abgelaufen ist?",
+        "name": "Was tun, wenn die Einspruchsfrist beim Vollstreckungsbescheid abgelaufen ist?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Sie können einen Antrag auf Wiedereinsetzung in den vorigen Stand stellen. Voraussetzung: Sie haben die Frist unverschuldet versäumt und stellen den Antrag innerhalb von 2 Wochen nach Wegfall des Hindernisses."
@@ -210,5 +229,31 @@
       <p style="margin-top: 12px;">&copy; 2026 VA-Stopp — A. Thiessen</p>
     </div>
   </footer>
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-inner">
+    <p>Wir nutzen Cookies zur Analyse unserer Werbung (Google Ads). <a href="/datenschutz.html">Mehr erfahren</a></p>
+    <div class="cookie-btns">
+      <button class="cookie-decline" id="cookieDecline">Ablehnen</button>
+      <button class="cookie-accept" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  if (document.cookie.indexOf('va_consent') !== -1) return;
+  var banner = document.getElementById('cookieBanner');
+  banner.classList.add('show');
+  document.getElementById('cookieAccept').addEventListener('click', function() {
+    document.cookie = 'va_consent=1; path=/; max-age=15552000; SameSite=Lax';
+    banner.classList.remove('show');
+    loadGtag();
+  });
+  document.getElementById('cookieDecline').addEventListener('click', function() {
+    document.cookie = 'va_consent=0; path=/; max-age=15552000; SameSite=Lax';
+    banner.classList.remove('show');
+  });
+})();
+</script>
 </body>
 </html>

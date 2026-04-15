@@ -5,14 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vermögensauskunft abwenden | VA-Stopp</title>
   <meta name="description" content="Vermögensauskunft vermeiden: Wir prüfen Ihren Fall in 24 Stunden und stellen die richtigen Anträge beim Gerichtsvollzieher. Festpreis 99 €. Fachanwalt.">
+  <link rel="canonical" href="https://va-stopp.de/">
+  <meta property="og:title" content="Vermögensauskunft abwenden | VA-Stopp">
+  <meta property="og:description" content="Vermögensauskunft vermeiden: Wir prüfen Ihren Fall in 24 Stunden und stellen die richtigen Anträge beim Gerichtsvollzieher. Festpreis 99 €.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://va-stopp.de/">
+  <meta property="og:locale" content="de_DE">
   <meta name="google-site-verification" content="tdC-dqmYdrahPx1nZJLBkvZ98biNxS-ieqDxALgHSO8" />
-  <!-- Google Ads gtag.js -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18087592672"></script>
+  <!-- Google Ads gtag.js — nur nach Cookie-Consent laden -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18087592672');
+    function loadGtag() {
+      if (document.querySelector('script[src*="googletagmanager"]')) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18087592672';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'AW-18087592672');
+    }
+    if (document.cookie.indexOf('va_consent=1') !== -1) { loadGtag(); }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -398,6 +411,49 @@
     }
     .overlay-box h2 { color: var(--green); margin-bottom: 12px; }
     .overlay-box p { color: var(--gray-600); }
+
+    /* ── COOKIE BANNER ──────────────────────────────────── */
+    .cookie-banner {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--navy);
+      color: #cbd5e1;
+      padding: 16px 20px;
+      z-index: 300;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+    }
+    .cookie-banner.show { display: block; }
+    .cookie-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cookie-inner p { flex: 1; min-width: 240px; margin: 0; }
+    .cookie-inner a { color: #94a3b8; text-decoration: underline; }
+    .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+    .cookie-btns button {
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .cookie-accept { background: var(--green); color: var(--white); }
+    .cookie-accept:hover { background: #047857; }
+    .cookie-decline { background: transparent; color: #94a3b8; border: 1px solid #475569 !important; }
+    .cookie-decline:hover { background: rgba(255,255,255,0.05); }
   </style>
 </head>
 <body>
@@ -578,7 +634,6 @@
     <h2 class="section-title">Fall einreichen</h2>
     <p class="section-subtitle">Wir melden uns innerhalb von 24 Stunden.</p>
     <div class="form-box">
-      <!-- TODO: Ersetze YOUR_FORM_ID mit deiner Formspree-ID (https://formspree.io) -->
       <form id="leadForm" action="https://formspree.io/f/xeevjzea" method="POST">
         <div class="form-group">
           <label for="name">Ihr Name</label>
@@ -694,7 +749,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>VA-Stopp ist ein Service von A. Thiessen in Kooperation mit spezialisierten Rechtsanwälten.</p>
+    <p>VA-Stopp ist ein Service in Kooperation mit spezialisierten Rechtsanwälten.</p>
     <div class="links">
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
@@ -813,7 +868,34 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
     btn.disabled = false;
   });
 });
+
+// ── Cookie Consent ────────────────────────────────────────────────────────
+(function() {
+  if (document.cookie.indexOf('va_consent') !== -1) return;
+  var banner = document.getElementById('cookieBanner');
+  banner.classList.add('show');
+  document.getElementById('cookieAccept').addEventListener('click', function() {
+    document.cookie = 'va_consent=1; path=/; max-age=15552000; SameSite=Lax';
+    banner.classList.remove('show');
+    loadGtag();
+  });
+  document.getElementById('cookieDecline').addEventListener('click', function() {
+    document.cookie = 'va_consent=0; path=/; max-age=15552000; SameSite=Lax';
+    banner.classList.remove('show');
+  });
+})();
 </script>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-inner">
+    <p>Wir nutzen Cookies zur Analyse unserer Werbung (Google Ads). <a href="datenschutz.html">Mehr erfahren</a></p>
+    <div class="cookie-btns">
+      <button class="cookie-decline" id="cookieDecline">Ablehnen</button>
+      <button class="cookie-accept" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

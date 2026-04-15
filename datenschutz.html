@@ -4,13 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutz | VA-Stopp</title>
-  <!-- Google Ads gtag.js -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18087592672"></script>
+  <!-- Google Ads gtag.js — nur nach Cookie-Consent laden -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18087592672');
+    function loadGtag() {
+      if (document.querySelector('script[src*="googletagmanager"]')) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18087592672';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'AW-18087592672');
+    }
+    if (document.cookie.indexOf('va_consent=1') !== -1) { loadGtag(); }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +42,7 @@
 <body>
 <nav>
   <div class="container">
-    <a href="index.html" class="logo">VA<span>Stopp</span></a>
+    <a href="index.html" class="logo">VA-<span>Stopp</span></a>
     <a href="index.html" class="back">Zur Startseite</a>
   </div>
 </nav>
@@ -141,12 +148,12 @@
   Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
 </p>
 
-<h2>4. Cookies</h2>
+<h2>4. Cookies und Einwilligung</h2>
 <p>
-  Diese Website verwendet Cookies von Google (siehe Abschnitt 5). Cookies sind kleine Textdateien,
-  die auf Ihrem Endgerät gespeichert werden. Sie können die Speicherung von Cookies in Ihren
-  Browser-Einstellungen jederzeit deaktivieren; in diesem Fall stehen Ihnen möglicherweise
-  nicht alle Funktionen der Website vollumfänglich zur Verfügung.
+  Diese Website verwendet technisch notwendige Cookies sowie — nach Ihrer Einwilligung — Cookies
+  von Google zum Conversion-Tracking (siehe Abschnitt 5). Beim ersten Besuch werden Sie über einen
+  Cookie-Banner um Ihre Zustimmung gebeten. Sie können Ihre Einwilligung jederzeit widerrufen,
+  indem Sie die Cookies in Ihren Browser-Einstellungen löschen.
 </p>
 
 <h2>5. Google Ads (Conversion-Tracking)</h2>
@@ -164,9 +171,9 @@
   sich einzelne Nutzer persönlich identifizieren lassen.
 </p>
 <p>
-  <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
-  der Messung der Wirksamkeit unserer Werbemaßnahmen). Die Datenübermittlung in die USA erfolgt
-  auf Grundlage von Standardvertragsklauseln gem. Art. 46 Abs. 2 lit. c DSGVO.
+  <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) i. V. m. § 25 Abs. 1 TDDDG.
+  Das Conversion-Tracking wird erst aktiviert, wenn Sie dem Einsatz von Cookies zugestimmt haben.
+  Die Datenübermittlung in die USA erfolgt auf Grundlage von Standardvertragsklauseln gem. Art. 46 Abs. 2 lit. c DSGVO.
 </p>
 <p>
   Sie können die Erfassung durch Google Ads verhindern, indem Sie personalisierte Werbung
