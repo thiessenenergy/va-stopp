@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Mahnbescheid nicht bemerkt — Frist verpasst, was tun? | VA-Stopp</title>
-  <meta name="description" content="Mahnbescheid übersehen oder zu spät geöffnet? Widerspruchsfrist abgelaufen? Erfahren Sie, welche Optionen Sie jetzt noch haben.">
+  <title>Gerichtsvollzieher kommt — was darf er, was nicht? | VA-Stopp</title>
+  <meta name="description" content="Der Gerichtsvollzieher steht vor der Tür? Erfahren Sie, was er darf, was nicht — und wie Sie die Vermögensauskunft noch abwenden können.">
   <meta name="google-site-verification" content="tdC-dqmYdrahPx1nZJLBkvZ98biNxS-ieqDxALgHSO8" />
   <!-- Google Ads gtag.js — nur nach Cookie-Consent laden -->
   <script>
@@ -43,10 +43,20 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #1a2744; --navy-light: #243352; --blue: #2563eb; --blue-hover: #1d4ed8;
-      --green: #059669; --green-light: #d1fae5; --gray-50: #f9fafb; --gray-100: #f3f4f6;
-      --gray-200: #e5e7eb; --gray-600: #4b5563; --gray-700: #374151; --gray-900: #111827;
-      --white: #ffffff; --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --navy: #1a2744;
+      --navy-light: #243352;
+      --blue: #2563eb;
+      --blue-hover: #1d4ed8;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
     }
     body { font-family: 'Inter', -apple-system, sans-serif; color: var(--gray-900); line-height: 1.7; background: var(--white); }
@@ -57,41 +67,47 @@
     .logo span { color: var(--green); }
     nav a.cta-nav { background: var(--green); color: var(--white); padding: 8px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
     nav a.cta-nav:hover { background: #047857; }
+
     .article-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 60px 0 48px; text-align: center; }
     .article-hero h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
     .article-hero .reading-time { color: #94a3b8; font-size: 0.9rem; }
+
     article { padding: 48px 0 64px; }
     article h2 { font-size: 1.35rem; font-weight: 700; margin: 40px 0 16px; color: var(--navy); }
     article h2:first-child { margin-top: 0; }
     article p { margin-bottom: 16px; color: var(--gray-700); }
     article ul, article ol { margin-bottom: 16px; padding-left: 24px; color: var(--gray-700); }
     article li { margin-bottom: 8px; }
+
     .info-box { background: #eff6ff; border-left: 4px solid var(--blue); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
     .info-box p { margin-bottom: 0; color: var(--gray-900); }
     .warning-box { background: #fef2f2; border-left: 4px solid #dc2626; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
     .warning-box p { margin-bottom: 0; color: var(--gray-900); }
-    .timeline { margin: 24px 0; padding-left: 0; list-style: none; }
-    .timeline li { position: relative; padding-left: 32px; margin-bottom: 20px; }
-    .timeline li::before { content: ""; position: absolute; left: 8px; top: 8px; width: 12px; height: 12px; background: var(--blue); border-radius: 50%; }
-    .timeline li::after { content: ""; position: absolute; left: 13px; top: 24px; width: 2px; height: calc(100% + 4px); background: var(--gray-200); }
-    .timeline li:last-child::after { display: none; }
-    .timeline strong { display: block; color: var(--navy); margin-bottom: 4px; }
+
     .cta-box { background: var(--navy); color: var(--white); padding: 40px; border-radius: 12px; text-align: center; margin: 48px 0 0; }
     .cta-box h3 { font-size: 1.3rem; margin-bottom: 12px; }
     .cta-box p { color: #94a3b8; margin-bottom: 24px; }
     .cta-box a { display: inline-block; background: var(--green); color: var(--white); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.2s; }
     .cta-box a:hover { background: #047857; }
+
     .breadcrumb { padding: 12px 0; font-size: 0.85rem; color: var(--gray-600); }
     .breadcrumb a { color: var(--blue); text-decoration: none; }
+
     .related { padding: 48px 0; background: var(--gray-50); }
     .related h3 { text-align: center; font-size: 1.2rem; margin-bottom: 24px; }
     .related-links { display: flex; flex-direction: column; gap: 12px; max-width: 720px; margin: 0 auto; padding: 0 20px; }
     .related-links a { background: var(--white); padding: 16px 20px; border-radius: 8px; text-decoration: none; color: var(--navy); font-weight: 500; box-shadow: var(--shadow); transition: box-shadow 0.2s; }
     .related-links a:hover { box-shadow: var(--shadow-lg); }
+
     footer { background: var(--navy); color: #94a3b8; padding: 32px 0; text-align: center; font-size: 0.85rem; }
     footer a { color: #94a3b8; text-decoration: none; margin: 0 12px; }
     footer a:hover { color: var(--white); }
-    @media (max-width: 600px) { .article-hero { padding: 40px 0 32px; } article { padding: 32px 0 48px; } .cta-box { padding: 28px 20px; } }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 40px 0 32px; }
+      article { padding: 32px 0 48px; }
+      .cta-box { padding: 28px 20px; }
+    }
     .cookie-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #1a2744; color: #cbd5e1; padding: 16px 20px; z-index: 300; font-size: 0.88rem; line-height: 1.5; box-shadow: 0 -4px 12px rgba(0,0,0,0.15); }
     .cookie-banner.show { display: block; }
     .cookie-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -111,26 +127,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Was passiert, wenn ich den Mahnbescheid nicht bemerkt habe?",
+        "name": "Muss ich dem Gerichtsvollzieher die Tür öffnen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Wenn Sie nicht innerhalb von 2 Wochen Widerspruch einlegen, kann der Gläubiger einen Vollstreckungsbescheid beantragen. Gegen diesen können Sie dann noch Einspruch einlegen. Haben Sie auch den verpasst, bleibt die Wiedereinsetzung in den vorigen Stand."
+          "text": "Nein. Der Gerichtsvollzieher darf Ihre Wohnung nicht mit Gewalt betreten, um eine Vermögensauskunft abzunehmen. Er kann nur dann die Tür öffnen lassen, wenn er einen gerichtlichen Durchsuchungsbeschluss hat — und den gibt es für die VA in der Praxis fast nie."
         }
       },
       {
         "@type": "Question",
-        "name": "Wann gilt ein Mahnbescheid als zugestellt?",
+        "name": "Was darf der Gerichtsvollzieher pfänden?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ein Mahnbescheid gilt als zugestellt, sobald er in Ihren Briefkasten eingeworfen wird — auch wenn Sie nicht zu Hause sind. Bei Ersatzzustellung an Mitbewohner gilt der Zeitpunkt der Übergabe."
+          "text": "Der GV darf bewegliche Sachen pfänden, die Ihnen gehören und nicht unter den Pfändungsschutz fallen. Geschützt sind: persönliche Kleidung, Hausrat in angemessenem Umfang, Arbeitsmittel, medizinische Hilfsmittel und Gegenstände religiöser Verehrung."
         }
       },
       {
         "@type": "Question",
-        "name": "Kann ich Widerspruch einlegen, wenn die Frist abgelaufen ist?",
+        "name": "Kann ich die Vermögensauskunft noch abwenden, wenn der Gerichtsvollzieher schon da war?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Gegen den Mahnbescheid selbst nicht mehr. Aber Sie können gegen den darauf folgenden Vollstreckungsbescheid Einspruch einlegen oder — falls auch diese Frist verstrichen ist — Wiedereinsetzung in den vorigen Stand beantragen."
+          "text": "Ja, unter bestimmten Umständen. Wenn der GV Sie nicht angetroffen hat, beginnt der Prozess von vorn. Selbst nach einer Ladung können Sie noch einen Ratenplan nach § 802b ZPO anbieten oder Formfehler geltend machen."
         }
       }
     ]
@@ -147,93 +163,110 @@
 
   <div class="article-hero">
     <div class="container">
-      <h1>Mahnbescheid nicht bemerkt — Frist verpasst, was tun?</h1>
-      <div class="reading-time">Lesezeit: 5 Minuten</div>
+      <h1>Gerichtsvollzieher kommt — was darf er, was nicht?</h1>
+      <div class="reading-time">Lesezeit: 6 Minuten</div>
     </div>
   </div>
 
   <div class="container">
     <div class="breadcrumb">
-      <a href="/">Startseite</a> &rsaquo; <a href="/ratgeber/mahnbescheid-frist-verpasst.html">Ratgeber</a> &rsaquo; Mahnbescheid Frist verpasst
+      <a href="/">Startseite</a> &rsaquo; <a href="/ratgeber/gerichtsvollzieher-kommt.html">Ratgeber</a> &rsaquo; Gerichtsvollzieher kommt
     </div>
   </div>
 
   <article>
     <div class="container">
 
-      <p><strong>Der Mahnbescheid lag im Briefkasten — aber Sie haben ihn übersehen, waren verreist oder haben ihn für Werbung gehalten?</strong> Jetzt ist die Widerspruchsfrist abgelaufen. Das ist ärgerlich, aber kein Grund zur Panik. Es gibt mehrere Wege, wie Sie sich noch wehren können.</p>
+      <p><strong>Der Gerichtsvollzieher hat sich angekündigt oder steht sogar vor der Tür?</strong> In diesem Moment geht es um konkrete Fragen: Muss ich öffnen? Was darf er mitnehmen? Kann ich die Vermögensauskunft noch verhindern? Hier erfahren Sie, welche Rechte Sie haben — und was der GV tatsächlich darf.</p>
 
-      <h2>Wann gilt ein Mahnbescheid als zugestellt?</h2>
-      <p>Das ist die entscheidende Frage, denn ab der Zustellung läuft die 2-Wochen-Frist für den Widerspruch. Der Mahnbescheid gilt als zugestellt, sobald er:</p>
+      <h2>Muss ich die Tür öffnen?</h2>
+      <p>Das kommt darauf an, <strong>warum</strong> der GV kommt:</p>
       <ul>
-        <li><strong>In Ihren Briefkasten</strong> eingeworfen wird — auch wenn Sie nicht da sind</li>
-        <li><strong>Einem Mitbewohner oder Familienmitglied</strong> übergeben wird (Ersatzzustellung)</li>
-        <li><strong>Bei der Post hinterlegt</strong> wird — dann gilt er nach Ablauf der Abholfrist als zugestellt</li>
+        <li><strong>Zur Abnahme der Vermögensauskunft:</strong> Sie müssen die Tür nicht öffnen. Der GV darf Ihre Wohnung nicht gewaltsam betreten, um die VA abzunehmen. Ohne Durchsuchungsbeschluss bleibt ihm nur, Sie erneut zu laden.</li>
+        <li><strong>Zur Sachpfändung:</strong> Hier ist die Lage anders. Hat der GV einen vollstreckbaren Titel und einen richterlichen Durchsuchungsbeschluss, darf er die Tür durch einen Schlüsseldienst öffnen lassen — auch ohne Ihre Zustimmung.</li>
       </ul>
 
       <div class="info-box">
-        <p><strong>Gut zu wissen:</strong> Wenn Sie nachweisen können, dass die Zustellung fehlerhaft war — zum Beispiel an eine Adresse, an der Sie nicht mehr wohnen — kann der Mahnbescheid unwirksam sein.</p>
+        <p><strong>In der Praxis:</strong> Die meisten GV-Besuche zur Vermögensauskunft laufen so ab: Der GV klingelt, trifft Sie nicht an oder Sie öffnen nicht. Er hinterlässt eine Ladung zum Termin in seinem Büro. Erst wenn Sie zu diesem Termin nicht erscheinen, kann es eskalieren.</p>
       </div>
 
-      <h2>Was passiert, wenn die Frist abgelaufen ist?</h2>
-      <p>Hier die typische Eskalationskette:</p>
+      <h2>Was darf der Gerichtsvollzieher pfänden?</h2>
+      <p>Bei einer Sachpfändung darf der GV <strong>bewegliche Sachen</strong> pfänden, die Ihnen gehören. In der Praxis heißt das: Er geht durch die Wohnung und prüft, ob es pfändbare Gegenstände gibt. Meistens gibt es wenig zu holen — ein Grund, warum viele Gläubiger direkt zur Vermögensauskunft übergehen.</p>
 
-      <ul class="timeline">
-        <li>
-          <strong>Mahnbescheid zugestellt</strong>
-          2 Wochen Frist für Widerspruch. Kein Widerspruch? Dann:
-        </li>
-        <li>
-          <strong>Vollstreckungsbescheid wird beantragt</strong>
-          Der Gläubiger beantragt den nächsten Schritt. Kann einige Wochen dauern.
-        </li>
-        <li>
-          <strong>Vollstreckungsbescheid zugestellt</strong>
-          Erneut 2 Wochen Frist — diesmal für einen <em>Einspruch</em>.
-        </li>
-        <li>
-          <strong>Titel vollstreckbar</strong>
-          Kein Einspruch? Die Forderung ist 30 Jahre lang durchsetzbar — Kontopfändung, Lohnpfändung, Gerichtsvollzieher.
-        </li>
-      </ul>
-
-      <h2>Ihre Optionen — je nachdem wo Sie stehen</h2>
-
-      <h2>Option 1: Vollstreckungsbescheid noch nicht da</h2>
-      <p>Wenn der Gläubiger noch keinen Vollstreckungsbescheid beantragt hat, haben Sie Glück: Der Mahnbescheid allein ist noch kein vollstreckbarer Titel. Manche Gläubiger warten Wochen oder sogar Monate.</p>
-      <p>Sie können in dieser Phase nicht mehr gegen den Mahnbescheid selbst Widerspruch einlegen. Aber sobald der Vollstreckungsbescheid kommt, haben Sie erneut 2 Wochen für einen <strong>Einspruch</strong>. Dieses Mal: nicht verpassen.</p>
-
-      <h2>Option 2: Vollstreckungsbescheid da, Frist läuft noch</h2>
-      <p>Perfekt — legen Sie sofort Einspruch ein. Das Verfahren geht dann in ein normales Klageverfahren über, und Sie können sich gegen die Forderung verteidigen. Der Einspruch muss schriftlich beim zuständigen Gericht eingehen.</p>
-
-      <h2>Option 3: Auch die Einspruchsfrist ist abgelaufen</h2>
-      <p>Dann bleibt die <strong>Wiedereinsetzung in den vorigen Stand</strong>. Das funktioniert, wenn Sie die Frist unverschuldet verpasst haben:</p>
+      <p><strong>Nicht pfändbar</strong> sind nach § 811 ZPO:</p>
       <ul>
-        <li>Krankenhausaufenthalt</li>
-        <li>Längere Reise ohne Postweiterleitung</li>
-        <li>Zustellung an falsche Adresse</li>
-        <li>Brief wurde von Mitbewohner verlegt</li>
+        <li>Persönliche Kleidung und Wäsche</li>
+        <li>Hausrat in angemessenem Umfang (Bett, Tisch, Stühle, Kühlschrank, Waschmaschine)</li>
+        <li>Arbeitsmittel, die Sie für Ihren Beruf brauchen</li>
+        <li>Medizinische Hilfsmittel (Brille, Rollstuhl, Prothesen)</li>
+        <li>Gegenstände religiöser Verehrung</li>
+        <li>Haustiere (seit 2022 ausdrücklich geschützt)</li>
+        <li>Bargeld bis zur Höhe des unpfändbaren Einkommens</li>
       </ul>
-      <p>Der Antrag muss innerhalb von 2 Wochen nach Wegfall des Hindernisses gestellt werden — zusammen mit dem Einspruch.</p>
 
       <div class="warning-box">
-        <p><strong>Achtung:</strong> „Ich habe das nicht ernst genommen" oder „Ich dachte das regelt sich von allein" reicht nicht als Begründung. Es muss ein konkretes, nachweisbares Hindernis vorgelegen haben.</p>
+        <p><strong>Wichtig:</strong> Elektronik wie Laptop, Smartphone oder TV kann grundsätzlich gepfändet werden. In der Praxis passiert das selten, weil der Wiederverkaufswert gering ist — aber der GV <em>dürfte</em> es.</p>
       </div>
 
-      <h2>Sonderfall: Sie haben den Mahnbescheid nie erhalten</h2>
-      <p>Wenn der Mahnbescheid Sie tatsächlich nie erreicht hat — etwa weil Sie umgezogen sind und keine Nachsendung eingerichtet haben — kann die Zustellung unwirksam sein. In diesem Fall ist auch der Vollstreckungsbescheid angreifbar. Entscheidend ist, ob die Zustellungsadresse korrekt war.</p>
+      <h2>Was ist die Vermögensauskunft — und warum will der GV sie?</h2>
+      <p>Die <strong>Vermögensauskunft nach § 802c ZPO</strong> (früher "eidesstattliche Versicherung" oder "Offenbarungseid") ist eine vollständige Auflistung Ihres Vermögens. Sie müssen dabei unter Eid erklären, was Sie besitzen: Konten, Einkommen, Fahrzeuge, Versicherungen, Immobilien — alles.</p>
+      <p>Die Folgen sind gravierend:</p>
+      <ul>
+        <li><strong>Eintrag im Schuldnerverzeichnis</strong> für 3 Jahre</li>
+        <li><strong>Negativer SCHUFA-Eintrag</strong> — Kreditwürdigkeit praktisch null</li>
+        <li><strong>Probleme bei Mietverträgen</strong> — Vermieter prüfen das Schuldnerverzeichnis</li>
+        <li><strong>Kontopfändung wird einfacher</strong> — der Gläubiger weiß jetzt, wo Ihr Konto ist</li>
+      </ul>
 
-      <h2>Was Sie jetzt konkret tun sollten</h2>
+      <h2>Kann ich die Vermögensauskunft noch abwenden?</h2>
+      <p>Ja, in vielen Fällen. Es gibt drei Hauptwege:</p>
+
+      <p><strong>1. Ratenzahlung nach § 802b ZPO</strong></p>
+      <p>Der Gerichtsvollzieher kann eine Zahlungsvereinbarung über bis zu 12 Monate zulassen. Bedingung: Sie müssen einen realistischen Ratenplan anbieten und die erste Rate sofort leisten können. Stimmt der GV zu, wird die VA ausgesetzt.</p>
+
+      <p><strong>2. Vollstreckungserinnerung nach § 766 ZPO</strong></p>
+      <p>Wenn die Ladung zur VA oder der zugrundeliegende Titel Formfehler hat, können Sie dagegen vorgehen. Typische Fehler:</p>
+      <ul>
+        <li>Ladungsfrist zu kurz (muss mindestens 1 Woche betragen)</li>
+        <li>Zustellungsmängel</li>
+        <li>Titel ist nicht korrekt (z. B. falsche Person)</li>
+      </ul>
+
+      <p><strong>3. Vollstreckungsschutz nach § 765a ZPO</strong></p>
+      <p>Bei besonderer Härte kann das Gericht die Vollstreckung ganz oder teilweise aufheben. Das kommt in Betracht bei schwerer Krankheit, akuter psychischer Belastung oder wenn die VA existenzbedrohend wäre.</p>
+
+      <div class="info-box">
+        <p><strong>Selbst wenn der GV schon da war:</strong> Solange Sie die VA noch nicht abgegeben haben, können Sie noch handeln. Hat der GV Sie nicht angetroffen, beginnt er den Prozess ohnehin neu mit einer schriftlichen Ladung.</p>
+      </div>
+
+      <h2>Was passiert, wenn ich zum Termin nicht erscheine?</h2>
+      <p>Wenn Sie zur Vermögensauskunft geladen werden und nicht erscheinen, kann der GV einen <strong>Haftbefehl nach § 802g ZPO</strong> beantragen. Das klingt dramatisch — und ist es auch. Allerdings:</p>
+      <ul>
+        <li>Der Haftbefehl dient nur der <strong>Erzwingung der VA-Abgabe</strong>, nicht der Bestrafung</li>
+        <li>In der Praxis wird er <strong>selten vollstreckt</strong> — die meisten GV geben den Vorgang nach mehreren Fehlversuchen zurück</li>
+        <li>Sobald Sie die VA abgeben, wird der Haftbefehl aufgehoben</li>
+      </ul>
+
+      <div class="warning-box">
+        <p><strong>Trotzdem:</strong> Es zum Haftbefehl kommen zu lassen, ist keine Strategie. Besser ist es, vorher aktiv zu werden und eine der oben genannten Optionen zu nutzen.</p>
+      </div>
+
+      <h2>Wie oft kommt der Gerichtsvollzieher?</h2>
+      <p>Das variiert je nach GV-Bezirk und Arbeitsbelastung. Typisch ist:</p>
       <ol>
-        <li><strong>Prüfen wo Sie stehen:</strong> Ist nur der Mahnbescheid da, oder auch schon der Vollstreckungsbescheid?</li>
-        <li><strong>Fristen notieren:</strong> Wann wurde zugestellt? Wann haben Sie es bemerkt?</li>
-        <li><strong>Nachweise sichern:</strong> Alles was erklärt, warum Sie die Frist verpasst haben</li>
-        <li><strong>Schnell handeln:</strong> Je früher Sie reagieren, desto besser Ihre Chancen</li>
+        <li><strong>Erster Versuch:</strong> Der GV kommt ohne Ankündigung oder nach kurzer schriftlicher Ankündigung</li>
+        <li><strong>Zweiter Versuch:</strong> Falls Sie nicht angetroffen werden, kommt er ein zweites Mal — oft zu einer anderen Tageszeit</li>
+        <li><strong>Ladung:</strong> Nach 1–2 erfolglosen Besuchen sendet er eine schriftliche Ladung zum Termin in seinem Büro</li>
+        <li><strong>Rückgabe:</strong> Wenn auch der Bürotermin scheitert, kann der GV den Vorgang an den Gläubiger zurückgeben oder den Haftbefehl beantragen</li>
       </ol>
+      <p>Wie schnell das geht, hängt vom einzelnen GV ab. Manche sind nach 2 Wochen durch, andere brauchen Monate.</p>
+
+      <h2>P-Konto: Ihr Schutz vor Kontopfändung</h2>
+      <p>Unabhängig von der VA sollten Sie Ihr Girokonto in ein <strong>Pfändungsschutzkonto (P-Konto)</strong> umwandeln, falls noch nicht geschehen. Das geht bei jeder Bank und schützt einen Grundfreibetrag von aktuell <strong>1.491 € pro Monat</strong> (2026) vor Pfändung. Mit Nachweisen über Unterhaltspflichten kann der Freibetrag erhöht werden.</p>
 
       <div class="cta-box">
-        <h3>Mahnbescheid verpasst? Wir helfen weiter.</h3>
-        <p>Schildern Sie uns kurz Ihren Fall — wir sagen Ihnen innerhalb von 24 Stunden, welche Optionen Sie haben.</p>
+        <h3>Gerichtsvollzieher angekündigt? Wir helfen.</h3>
+        <p>Wir prüfen innerhalb von 24 Stunden, ob Ihre Vermögensauskunft abgewendet werden kann — und stellen die nötigen Anträge.</p>
         <a href="/#kontakt">Jetzt Fall prüfen lassen</a>
       </div>
 
@@ -243,7 +276,6 @@
   <div class="related">
     <h3>Weitere Ratgeber</h3>
     <div class="related-links">
-      <a href="/ratgeber/gerichtsvollzieher-kommt.html">Gerichtsvollzieher kommt — was darf er, was nicht?</a>
       <a href="/ratgeber/schulden-verjaehrt.html">Schulden verjährt? So prüfen Sie, ob Sie noch zahlen müssen</a>
       <a href="/ratgeber/vollstreckungsbescheid-zu-spaet.html">Vollstreckungsbescheid zu spät gesehen — was jetzt?</a>
       <a href="/ratgeber/inkasso-ignorieren-oder-zahlen.html">Inkasso-Brief erhalten — ignorieren oder zahlen?</a>
@@ -254,9 +286,10 @@
     <div class="container">
       <a href="/impressum.html">Impressum</a>
       <a href="/datenschutz.html">Datenschutz</a>
-      <p style="margin-top: 12px;">&copy; 2026 VA-Stopp — A. Thiessen</p>
+      <p style="margin-top: 12px;">&copy; 2026 VA-Stopp</p>
     </div>
   </footer>
+
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
   <div class="cookie-inner">

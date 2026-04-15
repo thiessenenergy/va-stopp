@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Inkasso-Brief erhalten — ignorieren oder zahlen? | VA-Stopp</title>
-  <meta name="description" content="Inkasso-Schreiben bekommen? Erfahren Sie, woran Sie erkennen, ob die Forderung berechtigt ist — und was passiert, wenn Sie nicht zahlen.">
+  <title>Schulden verjährt? So prüfen Sie, ob Sie noch zahlen müssen | VA-Stopp</title>
+  <meta name="description" content="Sind Ihre Schulden verjährt? Erfahren Sie, welche Verjährungsfristen gelten, wann titulierte Forderungen verjähren und wie Sie die Verjährungseinrede erheben.">
   <meta name="google-site-verification" content="tdC-dqmYdrahPx1nZJLBkvZ98biNxS-ieqDxALgHSO8" />
   <!-- Google Ads gtag.js — nur nach Cookie-Consent laden -->
   <script>
@@ -43,10 +43,20 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #1a2744; --navy-light: #243352; --blue: #2563eb; --blue-hover: #1d4ed8;
-      --green: #059669; --green-light: #d1fae5; --gray-50: #f9fafb; --gray-100: #f3f4f6;
-      --gray-200: #e5e7eb; --gray-600: #4b5563; --gray-700: #374151; --gray-900: #111827;
-      --white: #ffffff; --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --navy: #1a2744;
+      --navy-light: #243352;
+      --blue: #2563eb;
+      --blue-hover: #1d4ed8;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
     }
     body { font-family: 'Inter', -apple-system, sans-serif; color: var(--gray-900); line-height: 1.7; background: var(--white); }
@@ -57,39 +67,53 @@
     .logo span { color: var(--green); }
     nav a.cta-nav { background: var(--green); color: var(--white); padding: 8px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
     nav a.cta-nav:hover { background: #047857; }
+
     .article-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 60px 0 48px; text-align: center; }
     .article-hero h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
     .article-hero .reading-time { color: #94a3b8; font-size: 0.9rem; }
+
     article { padding: 48px 0 64px; }
     article h2 { font-size: 1.35rem; font-weight: 700; margin: 40px 0 16px; color: var(--navy); }
     article h2:first-child { margin-top: 0; }
     article p { margin-bottom: 16px; color: var(--gray-700); }
     article ul, article ol { margin-bottom: 16px; padding-left: 24px; color: var(--gray-700); }
     article li { margin-bottom: 8px; }
+
     .info-box { background: #eff6ff; border-left: 4px solid var(--blue); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
     .info-box p { margin-bottom: 0; color: var(--gray-900); }
     .warning-box { background: #fef2f2; border-left: 4px solid #dc2626; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
     .warning-box p { margin-bottom: 0; color: var(--gray-900); }
-    .checklist { list-style: none; padding-left: 0; margin: 24px 0; }
-    .checklist li { padding: 12px 16px 12px 44px; position: relative; background: var(--gray-50); border-radius: 8px; margin-bottom: 8px; }
-    .checklist li::before { content: "!"; position: absolute; left: 14px; top: 12px; width: 22px; height: 22px; background: #fbbf24; color: var(--gray-900); border-radius: 50%; text-align: center; font-weight: 700; font-size: 0.85rem; line-height: 22px; }
-    .checklist li.ok::before { content: "\2713"; background: var(--green); color: var(--white); }
+
     .cta-box { background: var(--navy); color: var(--white); padding: 40px; border-radius: 12px; text-align: center; margin: 48px 0 0; }
     .cta-box h3 { font-size: 1.3rem; margin-bottom: 12px; }
     .cta-box p { color: #94a3b8; margin-bottom: 24px; }
     .cta-box a { display: inline-block; background: var(--green); color: var(--white); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.2s; }
     .cta-box a:hover { background: #047857; }
+
     .breadcrumb { padding: 12px 0; font-size: 0.85rem; color: var(--gray-600); }
     .breadcrumb a { color: var(--blue); text-decoration: none; }
+
     .related { padding: 48px 0; background: var(--gray-50); }
     .related h3 { text-align: center; font-size: 1.2rem; margin-bottom: 24px; }
     .related-links { display: flex; flex-direction: column; gap: 12px; max-width: 720px; margin: 0 auto; padding: 0 20px; }
     .related-links a { background: var(--white); padding: 16px 20px; border-radius: 8px; text-decoration: none; color: var(--navy); font-weight: 500; box-shadow: var(--shadow); transition: box-shadow 0.2s; }
     .related-links a:hover { box-shadow: var(--shadow-lg); }
+
     footer { background: var(--navy); color: #94a3b8; padding: 32px 0; text-align: center; font-size: 0.85rem; }
     footer a { color: #94a3b8; text-decoration: none; margin: 0 12px; }
     footer a:hover { color: var(--white); }
-    @media (max-width: 600px) { .article-hero { padding: 40px 0 32px; } article { padding: 32px 0 48px; } .cta-box { padding: 28px 20px; } }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 40px 0 32px; }
+      article { padding: 32px 0 48px; }
+      .cta-box { padding: 28px 20px; }
+    }
+
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.95rem; }
+    th { background: var(--navy); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+    td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); }
+    tr:nth-child(even) { background: var(--gray-50); }
+
     .cookie-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #1a2744; color: #cbd5e1; padding: 16px 20px; z-index: 300; font-size: 0.88rem; line-height: 1.5; box-shadow: 0 -4px 12px rgba(0,0,0,0.15); }
     .cookie-banner.show { display: block; }
     .cookie-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -109,26 +133,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Was passiert, wenn ich das Inkasso-Schreiben ignoriere?",
+        "name": "Wann verjähren Schulden in Deutschland?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Wenn die Forderung berechtigt ist, wird das Inkassounternehmen in der Regel einen gerichtlichen Mahnbescheid beantragen. Dann läuft eine 2-Wochen-Frist für den Widerspruch. Reagieren Sie auch darauf nicht, folgt der Vollstreckungsbescheid und damit die Zwangsvollstreckung."
+          "text": "Die reguläre Verjährungsfrist beträgt 3 Jahre ab Ende des Jahres, in dem die Forderung entstanden ist (§ 195 BGB). Eine Rechnung vom März 2023 verjährt also am 31. Dezember 2026."
         }
       },
       {
         "@type": "Question",
-        "name": "Woran erkenne ich eine unberechtigte Inkasso-Forderung?",
+        "name": "Wie lange kann eine titulierte Forderung vollstreckt werden?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Warnsignale sind: Sie kennen den Gläubiger nicht, die Forderung ist nicht nachvollziehbar aufgeschlüsselt, es wird mit unrealistischen Konsequenzen gedroht, oder das Inkassounternehmen ist nicht im Rechtsdienstleistungsregister eingetragen."
+          "text": "Eine titulierte Forderung (Urteil, Vollstreckungsbescheid, gerichtlicher Vergleich) verjährt erst nach 30 Jahren. Jede erneute Vollstreckungshandlung setzt die Frist neu."
         }
       },
       {
         "@type": "Question",
-        "name": "Muss ich Inkassogebühren bezahlen?",
+        "name": "Was muss ich tun, damit die Verjährung gilt?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nur wenn die Hauptforderung berechtigt ist und Sie sich tatsächlich in Verzug befanden. Die Inkassokosten dürfen maximal so hoch sein wie die entsprechenden Anwaltsgebühren nach dem RVG. Überhöhte Gebühren müssen Sie nicht akzeptieren."
+          "text": "Verjährung tritt nicht automatisch ein. Sie müssen die sogenannte Verjährungseinrede erheben — das heißt, Sie müssen dem Gläubiger oder dem Gericht aktiv mitteilen, dass Sie sich auf die Verjährung berufen."
         }
       }
     ]
@@ -145,91 +169,147 @@
 
   <div class="article-hero">
     <div class="container">
-      <h1>Inkasso-Brief erhalten — ignorieren oder zahlen?</h1>
-      <div class="reading-time">Lesezeit: 6 Minuten</div>
+      <h1>Schulden verjährt? So prüfen Sie, ob Sie noch zahlen müssen</h1>
+      <div class="reading-time">Lesezeit: 7 Minuten</div>
     </div>
   </div>
 
   <div class="container">
     <div class="breadcrumb">
-      <a href="/">Startseite</a> &rsaquo; <a href="/ratgeber/inkasso-ignorieren-oder-zahlen.html">Ratgeber</a> &rsaquo; Inkasso ignorieren oder zahlen
+      <a href="/">Startseite</a> &rsaquo; <a href="/ratgeber/schulden-verjaehrt.html">Ratgeber</a> &rsaquo; Schulden verjährt
     </div>
   </div>
 
   <article>
     <div class="container">
 
-      <p><strong>Ein Inkasso-Schreiben im Briefkasten sorgt erstmal für Stress.</strong> Die große Frage: Muss ich das zahlen — oder kann ich das ignorieren? Die Antwort hängt davon ab, ob die Forderung überhaupt berechtigt ist. Und das lässt sich prüfen.</p>
+      <p><strong>Sie haben einen alten Inkasso-Brief erhalten oder eine Forderung von vor Jahren taucht wieder auf?</strong> Dann stellt sich die entscheidende Frage: Ist die Forderung verjährt — und muss ich überhaupt noch zahlen? Hier erfahren Sie, welche Fristen gelten und was Sie tun müssen, damit die Verjährung greift.</p>
 
-      <h2>Erstmal Ruhe bewahren</h2>
-      <p>Ein Inkasso-Brief ist kein Gerichtsbeschluss. Ein Inkassounternehmen hat <strong>keine hoheitlichen Befugnisse</strong> — es kann weder Ihr Konto pfänden noch den Gerichtsvollzieher schicken. Es fordert Sie im Auftrag eines Gläubigers zur Zahlung auf. Nicht mehr und nicht weniger.</p>
-      <p>Trotzdem sollten Sie den Brief nicht einfach in den Müll werfen. Denn wenn die Forderung berechtigt ist und Sie nicht reagieren, wird der nächste Schritt ein gerichtlicher Mahnbescheid sein — und ab dann wird es ernst.</p>
+      <h2>Die reguläre Verjährungsfrist: 3 Jahre</h2>
+      <p>Die meisten Alltagsschulden verjähren nach <strong>3 Jahren</strong> (§ 195 BGB). Die Frist beginnt am <strong>Ende des Jahres</strong>, in dem die Forderung entstanden ist.</p>
 
-      <h2>5 Warnsignale für eine unberechtigte Forderung</h2>
-      <ul class="checklist">
-        <li>Sie kennen den genannten Gläubiger überhaupt nicht</li>
-        <li>Die Forderung ist nicht klar aufgeschlüsselt — Hauptforderung, Zinsen und Kosten fehlen</li>
-        <li>Es wird mit Haft, Schufa-Eintrag oder Pfändung „in den nächsten Tagen" gedroht</li>
-        <li>Das Inkassounternehmen ist nicht im <strong>Rechtsdienstleistungsregister</strong> eingetragen</li>
-        <li>Die Forderung betrifft ein Abo oder einen Vertrag, den Sie nie abgeschlossen haben</li>
+      <div class="info-box">
+        <p><strong>Beispiel:</strong> Eine unbezahlte Rechnung vom 15. März 2023. Die Verjährungsfrist beginnt am 1. Januar 2024 und endet am 31. Dezember 2026. Ab dem 1. Januar 2027 ist die Forderung verjährt.</p>
+      </div>
+
+      <p>Das gilt für die meisten Forderungen des täglichen Lebens:</p>
+      <ul>
+        <li>Handyrechnungen, Internet- und Stromverträge</li>
+        <li>Mietrückstände</li>
+        <li>Kaufpreisforderungen (Online-Bestellungen, Ratenkäufe)</li>
+        <li>Arztrechnungen</li>
+        <li>Inkasso-Forderungen (die Verjährung der Grundforderung gilt)</li>
+      </ul>
+
+      <h2>Vorsicht: 30 Jahre bei titulierten Forderungen</h2>
+      <p>Sobald ein Gläubiger einen <strong>vollstreckbaren Titel</strong> hat, verlängert sich die Verjährung auf <strong>30 Jahre</strong> (§ 197 Abs. 1 Nr. 3 BGB). Das betrifft:</p>
+      <ul>
+        <li><strong>Urteile</strong> — auch Versäumnisurteile</li>
+        <li><strong>Vollstreckungsbescheide</strong> — aus dem gerichtlichen Mahnverfahren</li>
+        <li><strong>Gerichtliche Vergleiche</strong></li>
+        <li><strong>Notarielle Urkunden</strong> mit Vollstreckungsklausel</li>
+      </ul>
+
+      <div class="warning-box">
+        <p><strong>Das ist der Grund, warum Sie auf Mahnbescheide immer reagieren sollten.</strong> Ein Mahnbescheid, dem nicht widersprochen wird, wird zum Vollstreckungsbescheid — und damit zum 30-Jahres-Titel. Aus einer eigentlich kleinen Forderung wird so ein jahrzehntelanges Problem.</p>
+      </div>
+
+      <h2>Übersicht: Welche Verjährungsfrist gilt?</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Art der Forderung</th>
+            <th>Verjährungsfrist</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rechnungen, Kaufpreis, Dienstleistungen</td>
+            <td>3 Jahre</td>
+          </tr>
+          <tr>
+            <td>Mietrückstände</td>
+            <td>3 Jahre</td>
+          </tr>
+          <tr>
+            <td>Inkasso-Forderungen (ohne Titel)</td>
+            <td>3 Jahre (ab Grundforderung)</td>
+          </tr>
+          <tr>
+            <td>Schadensersatz (Vorsatz)</td>
+            <td>3 Jahre (ab Kenntnis)</td>
+          </tr>
+          <tr>
+            <td>Vollstreckungsbescheid / Urteil</td>
+            <td>30 Jahre</td>
+          </tr>
+          <tr>
+            <td>Steuerschulden</td>
+            <td>5 Jahre (Festsetzungsverjährung)</td>
+          </tr>
+          <tr>
+            <td>Bußgelder</td>
+            <td>3–5 Jahre (je nach Höhe)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Was hemmt die Verjährung?</h2>
+      <p>Die Verjährung kann <strong>gehemmt</strong> (angehalten) oder <strong>neu begonnen</strong> werden. Das passiert häufiger als viele denken:</p>
+
+      <p><strong>Hemmung</strong> — die Frist wird angehalten, solange:</p>
+      <ul>
+        <li>Ein gerichtliches Mahnverfahren läuft</li>
+        <li>Eine Klage anhängig ist</li>
+        <li>Verhandlungen zwischen Ihnen und dem Gläubiger stattfinden</li>
+        <li>Ein Insolvenzverfahren läuft</li>
+      </ul>
+
+      <p><strong>Neubeginn</strong> — die Frist startet komplett neu, wenn:</p>
+      <ul>
+        <li>Sie die Schuld <strong>anerkennen</strong> (auch eine Teilzahlung gilt als Anerkennung!)</li>
+        <li>Der Gläubiger eine Vollstreckungshandlung vornimmt (Pfändung, Vermögensauskunft)</li>
+      </ul>
+
+      <div class="warning-box">
+        <p><strong>Häufiger Fehler:</strong> Sie zahlen „aus Kulanz" einen kleinen Betrag an ein Inkassounternehmen. Damit erkennen Sie die Forderung an — und die Verjährung beginnt von vorn. Bei einem Inkasso-Brief, den Sie für verjährt halten: <strong>nicht zahlen, nicht anrufen, nicht „mal schauen"</strong>.</p>
+      </div>
+
+      <h2>Verjährungseinrede: Sie müssen aktiv werden</h2>
+      <p>Verjährung tritt <strong>nicht automatisch</strong> ein. Sie müssen sich aktiv darauf berufen — das nennt man die <strong>Verjährungseinrede</strong> (§ 214 BGB). Das bedeutet:</p>
+      <ul>
+        <li>Wenn ein Inkassounternehmen schreibt: Schriftlich antworten und die Verjährungseinrede erheben</li>
+        <li>Wenn ein Mahnbescheid kommt: Widerspruch einlegen und im Verfahren die Einrede erklären</li>
+        <li>Wenn der GV kommt: Dem Gläubiger über das Gericht die Einrede mitteilen lassen</li>
       </ul>
 
       <div class="info-box">
-        <p><strong>Tipp:</strong> Jedes seriöse Inkassounternehmen muss im Rechtsdienstleistungsregister eingetragen sein. Sie können das unter rechtsdienstleistungsregister.de kostenlos prüfen.</p>
+        <p><strong>Wichtig:</strong> Wenn Sie auf einen Mahnbescheid nicht reagieren, wird dieser zum Vollstreckungsbescheid — und die 30-Jahres-Frist beginnt. Selbst wenn die Grundforderung eigentlich verjährt war! Die Verjährungseinrede müssen Sie rechtzeitig erheben.</p>
       </div>
 
-      <h2>Was passiert, wenn Sie nicht zahlen?</h2>
-      <p>Die typische Eskalation bei einer berechtigten Forderung:</p>
-      <ol>
-        <li><strong>Inkasso-Schreiben</strong> — Zahlungsaufforderung mit Fristsetzung (meist 7–14 Tage)</li>
-        <li><strong>Mahnungen</strong> — 1–3 weitere Schreiben, oft mit steigenden Gebühren</li>
-        <li><strong>Gerichtlicher Mahnbescheid</strong> — Jetzt haben Sie 2 Wochen für einen Widerspruch</li>
-        <li><strong>Vollstreckungsbescheid</strong> — Wenn Sie auch den Mahnbescheid ignorieren</li>
-        <li><strong>Zwangsvollstreckung</strong> — Kontopfändung, Lohnpfändung, Gerichtsvollzieher</li>
-      </ol>
-
-      <div class="warning-box">
-        <p><strong>Wichtig:</strong> Spätestens beim Mahnbescheid müssen Sie reagieren. Ein Mahnbescheid vom Gericht (erkennbar am gelben Umschlag) ist etwas völlig anderes als eine Mahnung vom Inkassounternehmen. Hier läuft eine echte Frist.</p>
-      </div>
-
-      <h2>Forderung berechtigt — was nun?</h2>
-      <p>Wenn Sie die Forderung grundsätzlich anerkennen, aber nicht auf einmal zahlen können:</p>
+      <h2>Sonderfall: Titulierte Forderung nach vielen Jahren</h2>
+      <p>Auch bei titulierten Forderungen gibt es Hoffnung. Nach <strong>§ 767 ZPO</strong> können Sie eine Vollstreckungsabwehrklage erheben, wenn nach der Titulierung Umstände eingetreten sind, die die Forderung ganz oder teilweise erledigen:</p>
       <ul>
-        <li><strong>Ratenzahlung anbieten</strong> — Viele Inkassounternehmen akzeptieren Raten, weil sie so schneller an ihr Geld kommen</li>
-        <li><strong>Vergleich verhandeln</strong> — Oft akzeptieren Gläubiger 60–80% der Forderung als Einmalzahlung</li>
-        <li><strong>Gebühren prüfen</strong> — Inkassokosten dürfen maximal so hoch sein wie Anwaltsgebühren nach dem RVG. Überhöhte Gebühren müssen Sie nicht zahlen</li>
+        <li>Die titulierte Forderung ist tatsächlich nach 30 Jahren verjährt</li>
+        <li>Die Forderung wurde zwischenzeitlich beglichen</li>
+        <li>Es gibt eine Aufrechnung mit einer Gegenforderung</li>
+        <li>Der Gläubiger hat auf die Forderung verzichtet</li>
       </ul>
 
-      <h2>Forderung unberechtigt — so wehren Sie sich</h2>
-      <p>Wenn Sie sicher sind, dass die Forderung nicht existiert:</p>
+      <h2>Checkliste: Ist meine Forderung verjährt?</h2>
       <ol>
-        <li><strong>Schriftlich widersprechen</strong> — Per Brief (Einschreiben) an das Inkassounternehmen. Fordern Sie einen detaillierten Nachweis der Forderung an.</li>
-        <li><strong>Keine Teilzahlung leisten</strong> — Eine Teilzahlung kann als Anerkennung der Forderung gewertet werden</li>
-        <li><strong>Beweise sichern</strong> — Screenshots, Kündigungsbestätigungen, Widerrufsbelege</li>
-        <li><strong>Nicht einschüchtern lassen</strong> — Drohungen mit Schufa, Haft oder sofortiger Pfändung sind bei unberechtigten Forderungen heiße Luft</li>
+        <li><strong>Wann ist die Forderung entstanden?</strong> (Rechnungsdatum, Vertragsdatum)</li>
+        <li><strong>Gibt es einen Titel?</strong> (Vollstreckungsbescheid, Urteil → 30 Jahre)</li>
+        <li><strong>Haben Sie zwischendurch gezahlt oder die Schuld anerkannt?</strong> (→ Neubeginn)</li>
+        <li><strong>Gab es ein Gerichts- oder Insolvenzverfahren?</strong> (→ Hemmung)</li>
+        <li><strong>Haben Sie die Verjährungseinrede erhoben?</strong> (Wenn nicht: nachholen!)</li>
       </ol>
-
-      <h2>Sonderfall: Forderung verjährt</h2>
-      <p>Die reguläre Verjährungsfrist für Forderungen beträgt <strong>3 Jahre</strong> (§ 195 BGB), gerechnet ab dem Ende des Jahres, in dem die Forderung entstanden ist. Eine Forderung aus 2022 verjährt also Ende 2025.</p>
-      <p>Aber Vorsicht: Verjährung greift nicht automatisch. Sie müssen die <strong>Einrede der Verjährung erheben</strong> — also dem Inkassounternehmen mitteilen, dass die Forderung verjährt ist. Zahlen Sie eine verjährte Forderung, können Sie das Geld in der Regel nicht zurückfordern.</p>
-
-      <h2>Inkasso oder Betrug? So unterscheiden Sie</h2>
-      <p>Leider gibt es auch betrügerische Inkasso-Schreiben. Achten Sie auf:</p>
-      <ul>
-        <li class="ok">Seriös: Nennt konkreten Gläubiger, Aktenzeichen, aufgeschlüsselte Forderung</li>
-        <li class="ok">Seriös: Ist im Rechtsdienstleistungsregister eingetragen</li>
-        <li>Verdächtig: Nur eine Kontonummer im Ausland, kein konkreter Gläubiger</li>
-        <li>Verdächtig: Droht mit Haftbefehl oder sofortiger Pfändung</li>
-        <li>Verdächtig: Extrem kurze Frist (24–48 Stunden)</li>
-      </ul>
-
-      <h2>Zusammenfassung: Ignorieren oder zahlen?</h2>
-      <p><strong>Nicht ignorieren, aber auch nicht blind zahlen.</strong> Prüfen Sie zuerst, ob die Forderung berechtigt ist. Widersprechen Sie schriftlich, wenn sie es nicht ist. Und reagieren Sie auf jeden Fall, wenn ein gerichtlicher Mahnbescheid kommt — sonst wird es teuer.</p>
 
       <div class="cta-box">
-        <h3>Unsicher ob die Forderung berechtigt ist?</h3>
-        <p>Schildern Sie uns Ihren Fall — wir prüfen die Forderung und sagen Ihnen, was Sie tun sollten.</p>
-        <a href="/#kontakt">Jetzt Forderung prüfen lassen</a>
+        <h3>Unsicher, ob Ihre Forderung verjährt ist?</h3>
+        <p>Wir prüfen Ihren Fall und sagen Ihnen, ob die Verjährungseinrede greift — bevor Sie versehentlich zahlen und die Frist neu starten.</p>
+        <a href="/#kontakt">Jetzt Fall prüfen lassen</a>
       </div>
 
     </div>
@@ -239,7 +319,6 @@
     <h3>Weitere Ratgeber</h3>
     <div class="related-links">
       <a href="/ratgeber/gerichtsvollzieher-kommt.html">Gerichtsvollzieher kommt — was darf er, was nicht?</a>
-      <a href="/ratgeber/schulden-verjaehrt.html">Schulden verjährt? So prüfen Sie, ob Sie noch zahlen müssen</a>
       <a href="/ratgeber/vollstreckungsbescheid-zu-spaet.html">Vollstreckungsbescheid zu spät gesehen — was jetzt?</a>
       <a href="/ratgeber/mahnbescheid-frist-verpasst.html">Mahnbescheid nicht bemerkt — Frist verpasst, was tun?</a>
     </div>
@@ -249,9 +328,10 @@
     <div class="container">
       <a href="/impressum.html">Impressum</a>
       <a href="/datenschutz.html">Datenschutz</a>
-      <p style="margin-top: 12px;">&copy; 2026 VA-Stopp — A. Thiessen</p>
+      <p style="margin-top: 12px;">&copy; 2026 VA-Stopp</p>
     </div>
   </footer>
+
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
   <div class="cookie-inner">
