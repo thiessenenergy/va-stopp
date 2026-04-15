@@ -868,8 +868,19 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
     btn.disabled = false;
   });
 });
+</script>
 
-// ── Cookie Consent ────────────────────────────────────────────────────────
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-inner">
+    <p>Wir nutzen Cookies zur Analyse unserer Werbung (Google Ads). <a href="datenschutz.html">Mehr erfahren</a></p>
+    <div class="cookie-btns">
+      <button class="cookie-decline" id="cookieDecline">Ablehnen</button>
+      <button class="cookie-accept" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+</div>
+<script>
 (function() {
   if (document.cookie.indexOf('va_consent') !== -1) return;
   var banner = document.getElementById('cookieBanner');
@@ -885,17 +896,6 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
   });
 })();
 </script>
-
-<!-- COOKIE BANNER -->
-<div class="cookie-banner" id="cookieBanner">
-  <div class="cookie-inner">
-    <p>Wir nutzen Cookies zur Analyse unserer Werbung (Google Ads). <a href="datenschutz.html">Mehr erfahren</a></p>
-    <div class="cookie-btns">
-      <button class="cookie-decline" id="cookieDecline">Ablehnen</button>
-      <button class="cookie-accept" id="cookieAccept">Akzeptieren</button>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
