@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vermögensauskunft abwenden | VA-Stopp</title>
   <meta name="description" content="Vermögensauskunft vermeiden: Wir prüfen Ihren Fall in 24 Stunden und stellen die richtigen Anträge beim Gerichtsvollzieher. Festpreis 99 €. Fachanwalt.">
+  <!-- Google Ads gtag.js -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18087592672"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18087592672');
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -727,6 +735,14 @@
 
     if (next === 'result') {
       bar.style.width = '100%';
+      // Google Ads Event: Schnellcheck abgeschlossen
+      if (typeof gtag === 'function') {
+        gtag('event', 'schnellcheck_complete', {
+          'event_category': 'engagement',
+          'event_label': score >= 6 ? 'positive' : 'uncertain',
+          'value': score
+        });
+      }
       if (score >= 6) {
         document.getElementById('resultPositive').style.display = 'block';
       } else {
@@ -734,6 +750,13 @@
       }
     } else if (next === 'early') {
       bar.style.width = '100%';
+      if (typeof gtag === 'function') {
+        gtag('event', 'schnellcheck_complete', {
+          'event_category': 'engagement',
+          'event_label': 'early',
+          'value': 0
+        });
+      }
       document.getElementById('resultEarly').style.display = 'block';
     } else {
       const nextStep = box.querySelector('[data-step="' + next + '"]');
@@ -769,6 +792,14 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
     headers: { 'Accept': 'application/json' }
   }).then(function(response) {
     if (response.ok) {
+      // Google Ads Conversion: Lead-Formular abgeschickt
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18087592672/4WcICKaPy5scEOCF67BD',
+          'value': 99.0,
+          'currency': 'EUR'
+        });
+      }
       document.getElementById('successOverlay').classList.add('show');
       form.reset();
     } else {
