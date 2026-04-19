@@ -482,6 +482,9 @@
     "inLanguage": "de-DE"
   }
   </script>
+  <!-- Plausible Analytics (DSGVO-konform, keine Cookies) -->
+  <script defer data-domain="va-stopp.de" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
 <body>
 
@@ -795,6 +798,7 @@
 // ── Quick Check Logic ──────────────────────────────────────────────────────
 (function() {
   let score = 0;
+  let started = false;
   const box = document.getElementById('checkBox');
   const bar = document.getElementById('progressBar');
   const totalSteps = 5;
@@ -802,6 +806,11 @@
   box.addEventListener('click', function(e) {
     const btn = e.target.closest('.check-btn');
     if (!btn) return;
+
+    if (!started) {
+      started = true;
+      if (typeof plausible === 'function') plausible('Check Started');
+    }
 
     score += parseInt(btn.dataset.score) || 0;
     const next = btn.dataset.next;
@@ -812,11 +821,15 @@
 
     if (next === 'result') {
       bar.style.width = '100%';
+      var resultLabel = score >= 6 ? 'positive' : 'uncertain';
+      if (typeof plausible === 'function') {
+        plausible('Check Completed', {props: {result: resultLabel, score: score}});
+      }
       // Google Ads Event: Schnellcheck abgeschlossen
       if (typeof gtag === 'function') {
         gtag('event', 'schnellcheck_complete', {
           'event_category': 'engagement',
-          'event_label': score >= 6 ? 'positive' : 'uncertain',
+          'event_label': resultLabel,
           'value': score
         });
       }
@@ -827,6 +840,9 @@
       }
     } else if (next === 'early') {
       bar.style.width = '100%';
+      if (typeof plausible === 'function') {
+        plausible('Check Completed', {props: {result: 'early', score: 0}});
+      }
       if (typeof gtag === 'function') {
         gtag('event', 'schnellcheck_complete', {
           'event_category': 'engagement',
@@ -898,6 +914,13 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
     headers: { 'Accept': 'application/json' }
   }).then(function(response) {
     if (response.ok) {
+      if (typeof plausible === 'function') {
+        plausible('Lead Submitted', {props: {
+          forderung: data.get('forderung') || 'leer',
+          hat_termin: data.get('termin') ? 'ja' : 'nein',
+          hat_details: data.get('details') ? 'ja' : 'nein'
+        }});
+      }
       // Google Ads Conversion: Interesse-Signal (Lead ≠ Umsatz in der Validierungsphase)
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {
