@@ -671,6 +671,16 @@
           <label for="details">Kurze Beschreibung Ihrer Situation (optional)</label>
           <textarea id="details" name="details" rows="3" placeholder="Z.B.: Gerichtsvollzieher hat Ladung geschickt, Termin in 10 Tagen ..."></textarea>
         </div>
+        <!-- Tracking-Felder (werden per JS bei Load gefüllt) -->
+        <input type="hidden" name="quelle_referrer" id="tf_referrer">
+        <input type="hidden" name="quelle_landing_url" id="tf_landing">
+        <input type="hidden" name="quelle_utm_source" id="tf_utm_source">
+        <input type="hidden" name="quelle_utm_medium" id="tf_utm_medium">
+        <input type="hidden" name="quelle_utm_campaign" id="tf_utm_campaign">
+        <input type="hidden" name="quelle_utm_term" id="tf_utm_term">
+        <input type="hidden" name="quelle_gclid" id="tf_gclid">
+        <input type="hidden" name="quelle_user_agent" id="tf_ua">
+        <input type="hidden" name="quelle_zeitpunkt" id="tf_ts">
         <button type="submit" class="btn btn-green btn-full">Unverbindlich vormerken</button>
         <p style="text-align:center; color:var(--gray-400); font-size:0.8rem; margin-top:12px;">
           Ihre Daten werden verschlüsselt übertragen und nur zur Kontaktaufnahme verwendet.
@@ -843,6 +853,35 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     this.nextElementSibling.classList.toggle('open');
   });
 });
+
+// ── Tracking-Felder beim Load füllen ───────────────────────────────────────
+(function() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var setIfExists = function(id, value) {
+      var el = document.getElementById(id);
+      if (el) el.value = value || '';
+    };
+    setIfExists('tf_referrer', document.referrer);
+    setIfExists('tf_landing', window.location.href);
+    setIfExists('tf_utm_source', params.get('utm_source'));
+    setIfExists('tf_utm_medium', params.get('utm_medium'));
+    setIfExists('tf_utm_campaign', params.get('utm_campaign'));
+    setIfExists('tf_utm_term', params.get('utm_term'));
+    setIfExists('tf_gclid', params.get('gclid'));
+    setIfExists('tf_ua', navigator.userAgent);
+    setIfExists('tf_ts', new Date().toISOString());
+    // Persistiere erste Quelle in sessionStorage, falls User auf Unterseite navigiert und zurückkommt
+    if (document.referrer && !sessionStorage.getItem('va_first_referrer')) {
+      sessionStorage.setItem('va_first_referrer', document.referrer);
+      sessionStorage.setItem('va_first_landing', window.location.href);
+    }
+    var firstRef = sessionStorage.getItem('va_first_referrer');
+    var firstLanding = sessionStorage.getItem('va_first_landing');
+    if (firstRef) setIfExists('tf_referrer', firstRef);
+    if (firstLanding) setIfExists('tf_landing', firstLanding);
+  } catch (e) {}
+})();
 
 // ── Form Submit (Formspree AJAX) ───────────────────────────────────────────
 document.getElementById('leadForm').addEventListener('submit', function(e) {
